@@ -1,0 +1,6 @@
+framework module CrashPreventor {
+  umbrella header "CrashPreventor-umbrella.h"
+
+  export *
+  module * { export * }
+}
