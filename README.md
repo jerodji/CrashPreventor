@@ -14,9 +14,23 @@ pod 'CrashPreventor'
 
 ## Introduce
 
+Crash防护框架，无感知，无乳入侵。
 
+目前支持 NSArray，NSMutableArrat，NSDictionary，NSMutableDictionary.
+
+其它支持正在更新中...
 
 ## Use
+
+```objc
+// open crash prevent
+// 开启防护
+[[CrashPreventor shared] openPreventor];
+
+// open assert to help debug, it's not work on release
+// 是否打开断言帮助调试，Release模式下此设置无效。
+[[CrashPreventor shared] openDebuggerAssert:YES];
+```
 
 
 

@@ -6,8 +6,15 @@ target 'CrashDemo' do
   use_frameworks!
 
   # Pods for CrashDemo
-  pod 'CrashPreventor', :path => '../'
+  
+#  pod 'CrashPreventor', :path => '../'
+  pod 'CrashPreventor'
 
+  
+  
+  
+  
+  
   target 'CrashDemoTests' do
     inherit! :search_paths
     # Pods for testing
