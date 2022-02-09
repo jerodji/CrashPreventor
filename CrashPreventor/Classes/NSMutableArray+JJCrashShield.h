@@ -9,7 +9,7 @@
 
 
 
-@interface NSMutableArray (preventor)
+@interface NSMutableArray (JJCrashShield)
 
 + (void)openCrashPreventor;
 

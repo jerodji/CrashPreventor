@@ -5,11 +5,11 @@
 //  Created by Jerod on 2021/5/17.
 //
 
-#import "NSArray+preventor.h"
+#import "NSArray+JJCrashShield.h"
 #import "CrashPreventor.h"
 
 
-@implementation NSArray (preventor)
+@implementation NSArray (JJCrashShield)
 
 + (void)openCrashPreventor {
     static dispatch_once_t onceToken;

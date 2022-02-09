@@ -7,10 +7,10 @@
 
 #import "CrashPreventor.h"
 #import <objc/runtime.h>
-#import "NSArray+preventor.h"
-#import "NSMutableArray+preventor.h"
-#import "NSDictionary+preventor.h"
-#import "NSMutableDictionary+preventor.h"
+#import "NSArray+JJCrashShield.h"
+#import "NSMutableArray+JJCrashShield.h"
+#import "NSDictionary+JJCrashShield.h"
+#import "NSMutableDictionary+JJCrashShield.h"
 
 
 @implementation CrashPreventor
@@ -69,11 +69,13 @@
  */
 void swizzling_instance_method(Class cls, SEL originSEL, SEL swizzleSEL)
 {
-    if (!cls || !originSEL || !swizzleSEL) return;
+    if (!cls) return;
 
     Method originMethod = class_getInstanceMethod(cls, originSEL);
     Method swizzleMethod = class_getInstanceMethod(cls, swizzleSEL);
 
+    if (!originMethod || !swizzleMethod) return;
+    
     BOOL didAddMethod = class_addMethod(cls, originSEL, method_getImplementation(swizzleMethod), method_getTypeEncoding(swizzleMethod));
     if (didAddMethod) {
         class_replaceMethod(cls, swizzleSEL, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
@@ -87,12 +89,19 @@ void swizzling_instance_method(Class cls, SEL originSEL, SEL swizzleSEL)
  */
 void swizzling_class_method(Class cls, SEL originSEL, SEL swizzleSEL)
 {
-    if (!cls || !originSEL || !swizzleSEL) return;
+    if (!cls) return;
+    
     Method originMethod = class_getClassMethod(cls, originSEL);
     Method swizzleMethod = class_getClassMethod(cls, swizzleSEL);
-    BOOL didAddMethod = class_addMethod(cls, originSEL, method_getImplementation(swizzleMethod), method_getTypeEncoding(swizzleMethod));
+    
+    if (!originMethod || !swizzleMethod) return;
+    
+    const char * metaName = NSStringFromClass(cls).UTF8String;
+    Class metaClass = objc_getMetaClass(metaName);
+    
+    BOOL didAddMethod = class_addMethod(metaClass, originSEL, method_getImplementation(swizzleMethod), method_getTypeEncoding(swizzleMethod));
     if (didAddMethod) {
-        class_replaceMethod(cls, swizzleSEL, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
+        class_replaceMethod(metaClass, swizzleSEL, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
     } else {
         method_exchangeImplementations(originMethod, swizzleMethod);
     }

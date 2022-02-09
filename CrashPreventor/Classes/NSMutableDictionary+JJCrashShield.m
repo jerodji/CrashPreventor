@@ -5,10 +5,10 @@
 //  Created by Jerod on 2021/5/17.
 //
 
-#import "NSMutableDictionary+preventor.h"
+#import "NSMutableDictionary+JJCrashShield.h"
 #import "CrashPreventor.h"
 
-@implementation NSMutableDictionary (preventor)
+@implementation NSMutableDictionary (JJCrashShield)
 
 + (void)openCrashPreventor
 {

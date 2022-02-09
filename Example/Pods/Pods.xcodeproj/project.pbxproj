@@ -8,27 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		05563FF8E292DBE87EEC590DBB4F2693 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		068578E8281E693466651584E710E703 /* NSDictionary+preventor.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+preventor.m */; };
+		068578E8281E693466651584E710E703 /* NSDictionary+JJCrashShield.m in Sources */ = {isa = PBXBuildFile; fileRef = 98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+JJCrashShield.m */; };
 		109CA3931D10CA054ECA12B1C69CAD09 /* Pods-CrashDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9E3E2B0E6A9952B1DB725CE91DCCD9 /* Pods-CrashDemoTests-dummy.m */; };
 		13D360F120321684566A9A951C416192 /* ValidObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F32FC32BDA2492D5D82EBD33F06680F /* ValidObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52C6ADB9C502394239D3139E58F81560 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		55509E5BB9BA20EE9368F208350AE371 /* CrashPreventor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B37A151D910E46E261DEF1CD9D0D06B /* CrashPreventor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		58E1067B2706A32C1DD9D6E09B1FA0A6 /* CrashPreventor.h in Headers */ = {isa = PBXBuildFile; fileRef = EB1B6A1C452248DAE00DA6E9D9D1A0F1 /* CrashPreventor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BF480E049F251F53E342CCED88F32F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		636C11D0BBDE6B5FAD211C6E7CA7F1CD /* NSMutableDictionary+preventor.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+preventor.m */; };
+		636C11D0BBDE6B5FAD211C6E7CA7F1CD /* NSMutableDictionary+JJCrashShield.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+JJCrashShield.m */; };
 		6D825085F03147B5B6A7C88C050088A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		6E6506022F772F4016C208C619500D10 /* NSDictionary+preventor.h in Headers */ = {isa = PBXBuildFile; fileRef = D158B8FB8228A62E89D8F7470915868C /* NSDictionary+preventor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A15A8AF5D69CA50D3CC1CAAAE0E8FDE /* NSArray+preventor.h in Headers */ = {isa = PBXBuildFile; fileRef = 700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+preventor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E6506022F772F4016C208C619500D10 /* NSDictionary+JJCrashShield.h in Headers */ = {isa = PBXBuildFile; fileRef = D158B8FB8228A62E89D8F7470915868C /* NSDictionary+JJCrashShield.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A15A8AF5D69CA50D3CC1CAAAE0E8FDE /* NSArray+JJCrashShield.h in Headers */ = {isa = PBXBuildFile; fileRef = 700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+JJCrashShield.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		806516D30EB40AC70431245CD73322D8 /* Pods-CrashDemo-CrashDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8FE47380F5F347335BFC7FB50CD618 /* Pods-CrashDemo-CrashDemoUITests-dummy.m */; };
-		924A4E6B0F1BA19519E608728C5BE288 /* NSMutableArray+preventor.h in Headers */ = {isa = PBXBuildFile; fileRef = 229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+preventor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		939A1402C5D74E47290CEDBC1A9EAAB2 /* NSArray+preventor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AB726696B2E89F194F692E54056A05 /* NSArray+preventor.m */; };
-		9ED483D41222B4D74F85F6FF9256C6D5 /* NSMutableDictionary+preventor.h in Headers */ = {isa = PBXBuildFile; fileRef = D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+preventor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		924A4E6B0F1BA19519E608728C5BE288 /* NSMutableArray+JJCrashShield.h in Headers */ = {isa = PBXBuildFile; fileRef = 229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+JJCrashShield.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		939A1402C5D74E47290CEDBC1A9EAAB2 /* NSArray+JJCrashShield.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AB726696B2E89F194F692E54056A05 /* NSArray+JJCrashShield.m */; };
+		9ED483D41222B4D74F85F6FF9256C6D5 /* NSMutableDictionary+JJCrashShield.h in Headers */ = {isa = PBXBuildFile; fileRef = D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+JJCrashShield.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AEDB7E11314D902926F7BE02BAF7F5CA /* CrashPreventor.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DC99287215F6719E6B54914C2041CC /* CrashPreventor.m */; };
 		C1D803A4D1EA443B6AE5108E131E3A5A /* Pods-CrashDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D35E81597E57613BC4FC57913BBD4CA6 /* Pods-CrashDemo-dummy.m */; };
 		C7EAC775D0FFF5AF9D7E6C74DCD4E002 /* Pods-CrashDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1591B56109296BE7A359FA853C7762AE /* Pods-CrashDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2A9980D6571AF078B034E482E110569 /* Pods-CrashDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 955153239DC08BFE06E4F78A987FD41F /* Pods-CrashDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB8E4C7202F44E09B1270CE92F3A7098 /* Pods-CrashDemo-CrashDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD882068E7EC56BD090E63A3616CCC5 /* Pods-CrashDemo-CrashDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD4567FD012EFF1E59D826792A2C7830 /* NSMutableArray+preventor.m in Sources */ = {isa = PBXBuildFile; fileRef = DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+preventor.m */; };
+		DD4567FD012EFF1E59D826792A2C7830 /* NSMutableArray+JJCrashShield.m in Sources */ = {isa = PBXBuildFile; fileRef = DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+JJCrashShield.m */; };
 		E002B3987748EBDAF2624F3125CCF585 /* CrashPreventor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1B8E4CBCEB1FF8C8ECCF9E5450438 /* CrashPreventor-dummy.m */; };
 		E4B362D96C190F67F5CCE0FA037F6A69 /* ValidObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = B05D2FB9F227CBDA2D90AC657E68C425 /* ValidObjc.m */; };
 /* End PBXBuildFile section */
@@ -61,23 +61,23 @@
 		090A41DB46ED743B1337BA7E04856E5A /* Pods-CrashDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FE69ACDB2D7B0F3CF0E03FF8BADD108 /* Pods-CrashDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CrashDemo-frameworks.sh"; sourceTree = "<group>"; };
 		1591B56109296BE7A359FA853C7762AE /* Pods-CrashDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CrashDemoTests-umbrella.h"; sourceTree = "<group>"; };
-		15AD21DA175718A979774C01BFEDA38A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		15AD21DA175718A979774C01BFEDA38A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2272791D1C35858F200E0FD0EA18919F /* Pods-CrashDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrashDemoTests-Info.plist"; sourceTree = "<group>"; };
-		229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+preventor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+preventor.h"; path = "CrashPreventor/Classes/NSMutableArray+preventor.h"; sourceTree = "<group>"; };
+		229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+JJCrashShield.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+JJCrashShield.h"; path = "CrashPreventor/Classes/NSMutableArray+JJCrashShield.h"; sourceTree = "<group>"; };
 		29A17553D8D2F5A84A0420F3DD4F8131 /* Pods-CrashDemo-CrashDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CrashDemo-CrashDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2EC421B4023CEDEAADFF6D2BE9E87C5E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2EC421B4023CEDEAADFF6D2BE9E87C5E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		376F982EA45F04B00ECD2DF5F4E86669 /* Pods-CrashDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrashDemo-Info.plist"; sourceTree = "<group>"; };
-		386EC94B270F38D500C0B4A8CD928FB0 /* Pods_CrashDemo_CrashDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CrashDemo_CrashDemoUITests.framework; path = "Pods-CrashDemo-CrashDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		386EC94B270F38D500C0B4A8CD928FB0 /* Pods_CrashDemo_CrashDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemo_CrashDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8FE47380F5F347335BFC7FB50CD618 /* Pods-CrashDemo-CrashDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CrashDemo-CrashDemoUITests-dummy.m"; sourceTree = "<group>"; };
 		3C964CEB16D2C2C8D0F766B62CDA53C3 /* Pods-CrashDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3F9C6478324C73EC037758A7E7F97F6C /* Pods-CrashDemo-CrashDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrashDemo-CrashDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		436DE07693804F4C839879BDCB7C2B0E /* Pods_CrashDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CrashDemoTests.framework; path = "Pods-CrashDemoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		436DE07693804F4C839879BDCB7C2B0E /* Pods_CrashDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C80156EDFBC51A28BBAB6454A6F6DC7 /* Pods-CrashDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CrashDemo.modulemap"; sourceTree = "<group>"; };
 		5C88EA62AEE42EEB03D3A799B027495F /* Pods-CrashDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrashDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5CF1B8E4CBCEB1FF8C8ECCF9E5450438 /* CrashPreventor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CrashPreventor-dummy.m"; sourceTree = "<group>"; };
-		5F3535BB8A1B07528843751034987898 /* CrashPreventor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = CrashPreventor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5F3535BB8A1B07528843751034987898 /* CrashPreventor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CrashPreventor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6F32FC32BDA2492D5D82EBD33F06680F /* ValidObjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ValidObjc.h; path = CrashPreventor/Classes/ValidObjc.h; sourceTree = "<group>"; };
-		700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+preventor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+preventor.h"; path = "CrashPreventor/Classes/NSArray+preventor.h"; sourceTree = "<group>"; };
+		700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+JJCrashShield.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+JJCrashShield.h"; path = "CrashPreventor/Classes/NSArray+JJCrashShield.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7304519847E611EE60FEB9E64C7E561F /* CrashPreventor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CrashPreventor-prefix.pch"; sourceTree = "<group>"; };
 		75DC99287215F6719E6B54914C2041CC /* CrashPreventor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CrashPreventor.m; path = CrashPreventor/Classes/CrashPreventor.m; sourceTree = "<group>"; };
@@ -87,27 +87,27 @@
 		8A29D286D222062F446186B340500321 /* Pods-CrashDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8B37A151D910E46E261DEF1CD9D0D06B /* CrashPreventor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CrashPreventor-umbrella.h"; sourceTree = "<group>"; };
 		955153239DC08BFE06E4F78A987FD41F /* Pods-CrashDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CrashDemo-umbrella.h"; sourceTree = "<group>"; };
-		98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+preventor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+preventor.m"; path = "CrashPreventor/Classes/NSDictionary+preventor.m"; sourceTree = "<group>"; };
+		98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+JJCrashShield.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JJCrashShield.m"; path = "CrashPreventor/Classes/NSDictionary+JJCrashShield.m"; sourceTree = "<group>"; };
 		9A1BB47CB9FFB58A60A2A5002D27FD43 /* Pods-CrashDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CrashDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AFE5CA64E3FF951B07E6C7DBF0B646F6 /* Pods-CrashDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B00C92CAA55831083E16B7F44FE239A7 /* CrashPreventor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CrashPreventor.framework; path = CrashPreventor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00C92CAA55831083E16B7F44FE239A7 /* CrashPreventor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CrashPreventor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D2FB9F227CBDA2D90AC657E68C425 /* ValidObjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ValidObjc.m; path = CrashPreventor/Classes/ValidObjc.m; sourceTree = "<group>"; };
-		B0AB726696B2E89F194F692E54056A05 /* NSArray+preventor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+preventor.m"; path = "CrashPreventor/Classes/NSArray+preventor.m"; sourceTree = "<group>"; };
+		B0AB726696B2E89F194F692E54056A05 /* NSArray+JJCrashShield.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+JJCrashShield.m"; path = "CrashPreventor/Classes/NSArray+JJCrashShield.m"; sourceTree = "<group>"; };
 		B4D1A1199F513B03BDB84B92DAEAD37F /* CrashPreventor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CrashPreventor.debug.xcconfig; sourceTree = "<group>"; };
 		B74E0DFC1B7BFDF650D913B3EE4DC3C3 /* Pods-CrashDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CrashDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B9C8E1BFA9C71542FC853C8ECAA8A65B /* CrashPreventor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CrashPreventor.modulemap; sourceTree = "<group>"; };
 		BE921E7CCE085C0CD8F36A21910C9217 /* Pods-CrashDemo-CrashDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CrashDemo-CrashDemoUITests.modulemap"; sourceTree = "<group>"; };
 		C0F99F75157BBF887D70D1A9138F3DE0 /* Pods-CrashDemo-CrashDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashDemo-CrashDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D158B8FB8228A62E89D8F7470915868C /* NSDictionary+preventor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+preventor.h"; path = "CrashPreventor/Classes/NSDictionary+preventor.h"; sourceTree = "<group>"; };
-		D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+preventor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+preventor.h"; path = "CrashPreventor/Classes/NSMutableDictionary+preventor.h"; sourceTree = "<group>"; };
+		D158B8FB8228A62E89D8F7470915868C /* NSDictionary+JJCrashShield.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JJCrashShield.h"; path = "CrashPreventor/Classes/NSDictionary+JJCrashShield.h"; sourceTree = "<group>"; };
+		D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+JJCrashShield.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+JJCrashShield.h"; path = "CrashPreventor/Classes/NSMutableDictionary+JJCrashShield.h"; sourceTree = "<group>"; };
 		D35E81597E57613BC4FC57913BBD4CA6 /* Pods-CrashDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CrashDemo-dummy.m"; sourceTree = "<group>"; };
-		DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+preventor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+preventor.m"; path = "CrashPreventor/Classes/NSMutableArray+preventor.m"; sourceTree = "<group>"; };
+		DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+JJCrashShield.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+JJCrashShield.m"; path = "CrashPreventor/Classes/NSMutableArray+JJCrashShield.m"; sourceTree = "<group>"; };
 		DCDB4F712A0EC92B7158203D3384217A /* Pods-CrashDemo-CrashDemoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CrashDemo-CrashDemoUITests-Info.plist"; sourceTree = "<group>"; };
-		DD5D672B081B760E6F9AC27FA5E92F7B /* Pods_CrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CrashDemo.framework; path = "Pods-CrashDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5D672B081B760E6F9AC27FA5E92F7B /* Pods_CrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1B6A1C452248DAE00DA6E9D9D1A0F1 /* CrashPreventor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CrashPreventor.h; path = CrashPreventor/Classes/CrashPreventor.h; sourceTree = "<group>"; };
 		EEA94AA9D81D166A088BD94667BBED2E /* Pods-CrashDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CrashDemoTests.modulemap"; sourceTree = "<group>"; };
-		F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+preventor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+preventor.m"; path = "CrashPreventor/Classes/NSMutableDictionary+preventor.m"; sourceTree = "<group>"; };
+		F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+JJCrashShield.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+JJCrashShield.m"; path = "CrashPreventor/Classes/NSMutableDictionary+JJCrashShield.m"; sourceTree = "<group>"; };
 		F3EE4C0F57EC6740395353395AE0477F /* CrashPreventor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CrashPreventor-Info.plist"; sourceTree = "<group>"; };
 		F78AE21818717F6611C01391CC57C9F0 /* Pods-CrashDemo-CrashDemoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CrashDemo-CrashDemoUITests-frameworks.sh"; sourceTree = "<group>"; };
 		FE9E3E2B0E6A9952B1DB725CE91DCCD9 /* Pods-CrashDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CrashDemoTests-dummy.m"; sourceTree = "<group>"; };
@@ -172,14 +172,14 @@
 			children = (
 				EB1B6A1C452248DAE00DA6E9D9D1A0F1 /* CrashPreventor.h */,
 				75DC99287215F6719E6B54914C2041CC /* CrashPreventor.m */,
-				700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+preventor.h */,
-				B0AB726696B2E89F194F692E54056A05 /* NSArray+preventor.m */,
-				D158B8FB8228A62E89D8F7470915868C /* NSDictionary+preventor.h */,
-				98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+preventor.m */,
-				229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+preventor.h */,
-				DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+preventor.m */,
-				D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+preventor.h */,
-				F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+preventor.m */,
+				700AA38A31C5B22CC7FE1325141F6E2D /* NSArray+JJCrashShield.h */,
+				B0AB726696B2E89F194F692E54056A05 /* NSArray+JJCrashShield.m */,
+				D158B8FB8228A62E89D8F7470915868C /* NSDictionary+JJCrashShield.h */,
+				98BBD6F2DC04DEE117A5CDFC9AA522A1 /* NSDictionary+JJCrashShield.m */,
+				229B0E84A9A8CAC7D5803EDBA88262D4 /* NSMutableArray+JJCrashShield.h */,
+				DBAD55C9CF2B81D2CB804E01994D3B66 /* NSMutableArray+JJCrashShield.m */,
+				D31B99DA03443AC1A4068E161F910419 /* NSMutableDictionary+JJCrashShield.h */,
+				F2E5EE2C3ACE81D40F3261125BE99EFE /* NSMutableDictionary+JJCrashShield.m */,
 				6F32FC32BDA2492D5D82EBD33F06680F /* ValidObjc.h */,
 				B05D2FB9F227CBDA2D90AC657E68C425 /* ValidObjc.m */,
 				8AD180DA5D840587605E2D85F30BDE4D /* Pod */,
@@ -312,10 +312,10 @@
 			files = (
 				55509E5BB9BA20EE9368F208350AE371 /* CrashPreventor-umbrella.h in Headers */,
 				58E1067B2706A32C1DD9D6E09B1FA0A6 /* CrashPreventor.h in Headers */,
-				7A15A8AF5D69CA50D3CC1CAAAE0E8FDE /* NSArray+preventor.h in Headers */,
-				6E6506022F772F4016C208C619500D10 /* NSDictionary+preventor.h in Headers */,
-				924A4E6B0F1BA19519E608728C5BE288 /* NSMutableArray+preventor.h in Headers */,
-				9ED483D41222B4D74F85F6FF9256C6D5 /* NSMutableDictionary+preventor.h in Headers */,
+				7A15A8AF5D69CA50D3CC1CAAAE0E8FDE /* NSArray+JJCrashShield.h in Headers */,
+				6E6506022F772F4016C208C619500D10 /* NSDictionary+JJCrashShield.h in Headers */,
+				924A4E6B0F1BA19519E608728C5BE288 /* NSMutableArray+JJCrashShield.h in Headers */,
+				9ED483D41222B4D74F85F6FF9256C6D5 /* NSMutableDictionary+JJCrashShield.h in Headers */,
 				13D360F120321684566A9A951C416192 /* ValidObjc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,10 +514,10 @@
 			files = (
 				E002B3987748EBDAF2624F3125CCF585 /* CrashPreventor-dummy.m in Sources */,
 				AEDB7E11314D902926F7BE02BAF7F5CA /* CrashPreventor.m in Sources */,
-				939A1402C5D74E47290CEDBC1A9EAAB2 /* NSArray+preventor.m in Sources */,
-				068578E8281E693466651584E710E703 /* NSDictionary+preventor.m in Sources */,
-				DD4567FD012EFF1E59D826792A2C7830 /* NSMutableArray+preventor.m in Sources */,
-				636C11D0BBDE6B5FAD211C6E7CA7F1CD /* NSMutableDictionary+preventor.m in Sources */,
+				939A1402C5D74E47290CEDBC1A9EAAB2 /* NSArray+JJCrashShield.m in Sources */,
+				068578E8281E693466651584E710E703 /* NSDictionary+JJCrashShield.m in Sources */,
+				DD4567FD012EFF1E59D826792A2C7830 /* NSMutableArray+JJCrashShield.m in Sources */,
+				636C11D0BBDE6B5FAD211C6E7CA7F1CD /* NSMutableDictionary+JJCrashShield.m in Sources */,
 				E4B362D96C190F67F5CCE0FA037F6A69 /* ValidObjc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

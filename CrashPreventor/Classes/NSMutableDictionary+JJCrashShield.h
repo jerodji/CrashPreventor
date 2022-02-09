@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSMutableDictionary (preventor)
+@interface NSMutableDictionary (JJCrashShield)
 
 + (void)openCrashPreventor;
 
