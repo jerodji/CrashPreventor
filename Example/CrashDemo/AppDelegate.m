@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import <CrashPreventor/CrashPreventor.h>
+#import <JJCrashGuard/JJCrashGuard.h>
 
 
 @interface AppDelegate ()
@@ -19,10 +19,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // open crash prevent
-    [[CrashPreventor shared] openPreventor];
+    [[JJCrashGuard shared] openShield];
     
     // open assert to help debug, it's not work on release
-    [[CrashPreventor shared] openDebuggerAssert:YES];
+//    [[CrashPreventor shared] openDebuggerAssert:YES];
+    
+    
+//    [[JJCrashGuard shared] report:@"repooot %d %d %d", 7, 53 ,247, nil];
+    
+    NSArray * arr = @[@1, @2];
+    id obj = arr[3];
+    NSLog(@"");
     
     
     return YES;

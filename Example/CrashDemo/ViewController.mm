@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "CFuns.hpp"
 
 
 @interface ViewController ()
@@ -25,5 +26,11 @@
     NSLog(@"enter app ---");
     
 }
+
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    ccfuns(22);
+}
+
 
 @end

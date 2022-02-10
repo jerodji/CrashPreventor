@@ -72,3 +72,26 @@ BOOL NotNullNotEmpty(id o);
 
 @end
 
+
+
+@interface NSArray<T> (safe)
+- (T)safeObjectAtIndex:(NSUInteger)index;
+@end
+
+
+@interface NSMutableArray<T> (safe)
+- (void)safeInsertObject:(T)anObject atIndex:(NSUInteger)index;
+- (void)safeRemoveObjectAtIndex:(NSUInteger)index;
+- (void)safeReplaceObjectAtIndex:(NSUInteger)index withObject:(T)anObject;
+@end
+
+
+@interface NSDictionary<K, T> (safe)
+- (T)safeObjectForKey:(K)aKey;
+@end
+
+
+@interface NSMutableDictionary<K, T> (safe)
+- (void)safeSetObject:(T)anObject forKey:(K <NSCopying>)aKey;
+- (void)safeRemoveObjectForKey:(K)aKey;
+@end

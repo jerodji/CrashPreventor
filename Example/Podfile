@@ -7,21 +7,8 @@ target 'CrashDemo' do
 
   # Pods for CrashDemo
   
-#  pod 'CrashPreventor', :path => '../'
-  pod 'CrashPreventor'
+  pod 'JJCrashGuard', :path => '../'
+#  pod 'CrashPreventor'
 
   
-  
-  
-  
-  
-  target 'CrashDemoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'CrashDemoUITests' do
-    # Pods for testing
-  end
-
 end

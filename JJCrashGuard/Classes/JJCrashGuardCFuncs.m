@@ -1,66 +1,24 @@
 //
-//  CrashPreventor.m
-//  CrashDemo
+//  JJCrashGuardCFuncs.m
+//  JJCrashGuard
 //
-//  Created by Jerod on 2021/5/17.
+//  Created by CN210208396 on 2022/2/10.
 //
 
-#import "CrashPreventor.h"
+#import "JJCrashGuardCFuncs.h"
 #import <objc/runtime.h>
-#import "NSArray+JJCrashShield.h"
-#import "NSMutableArray+JJCrashShield.h"
-#import "NSDictionary+JJCrashShield.h"
-#import "NSMutableDictionary+JJCrashShield.h"
 
 
-@implementation CrashPreventor
-
-@synthesize isOpen = _isOpen;
-@synthesize debugger = _debugger;
-
-
-+ (instancetype)shared {
-    static CrashPreventor * ins = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        ins = [[super allocWithZone:nil] init];
-    });
-    return ins;
-}
-+(id)allocWithZone:(NSZone *)zone {
-    return [self shared];
-}
--(id)copyWithZone:(NSZone *)zone {
-    return [[self class] shared];
-}
--(id)mutableCopyWithZone:(NSZone *)zone {
-    return [[self class] shared];
-}
-
-
-
-- (void)openPreventor {
-    _isOpen = YES;
-    if (_isOpen) {
-        [NSArray openCrashPreventor];
-        [NSMutableArray openCrashPreventor];
-        [NSDictionary openCrashPreventor];
-        [NSMutableDictionary openCrashPreventor];
-    }
-}
-
-- (void)openDebuggerAssert:(BOOL)debugger {
-#ifdef DEBUG
-    _debugger = debugger;
-#else
-    _debugger = NO;
-#endif
-}
+@implementation JJCrashGuardCFuncs
 
 @end
 
 
 
+//void CPAssert(BOOL condition, NSString* desc, ...)
+//{
+//    
+//}
 
 
 
@@ -106,3 +64,4 @@ void swizzling_class_method(Class cls, SEL originSEL, SEL swizzleSEL)
         method_exchangeImplementations(originMethod, swizzleMethod);
     }
 }
+

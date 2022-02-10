@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CrashPreventor'
+  s.name             = 'JJCrashGuard'
   s.version          = '0.1.0'
   s.summary          = 'A short description of CrashPreventor.'
 

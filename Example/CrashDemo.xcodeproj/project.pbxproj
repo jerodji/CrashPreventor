@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57E33F865912D3BBA87C4A87 /* Pods_CrashDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4580B8280E136D03FA232890 /* Pods_CrashDemoTests.framework */; };
+		1B7C3A4927B3F7AE00E597B0 /* JJCrashGuard.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */; };
+		1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C1B27B5257700E625A2 /* CFuns.mm */; };
+		1B7C5C2327B52E0F00E625A2 /* JJCrashGuard+report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */; };
 		83FC56AB00C302BDB3F0515C /* Pods_CrashDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */; };
-		880E68D59838C9CDF6600CE5 /* Pods_CrashDemo_CrashDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFEDEB902672C2A069790BB /* Pods_CrashDemo_CrashDemoUITests.framework */; };
 		FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7A426521FF200C2932E /* AppDelegate.m */; };
-		FAC3B7AB26521FF200C2932E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7AA26521FF200C2932E /* ViewController.m */; };
+		FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7AA26521FF200C2932E /* ViewController.mm */; };
 		FAC3B7AE26521FF200C2932E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7AC26521FF200C2932E /* Main.storyboard */; };
 		FAC3B7B026521FF500C2932E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7AF26521FF500C2932E /* Assets.xcassets */; };
 		FAC3B7B326521FF500C2932E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7B126521FF500C2932E /* LaunchScreen.storyboard */; };
@@ -20,7 +21,6 @@
 		FAC3B7CB26521FF600C2932E /* CrashDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7CA26521FF600C2932E /* CrashDemoUITests.m */; };
 		FAC3B7ED2652225900C2932E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7EA2652225900C2932E /* LICENSE */; };
 		FAC3B7EE2652225900C2932E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7EB2652225900C2932E /* README.md */; };
-		FAC3B7EF2652225900C2932E /* CrashPreventor.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7EC2652225900C2932E /* CrashPreventor.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FFEDEB902672C2A069790BB /* Pods_CrashDemo_CrashDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemo_CrashDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AEF212632A3FA2D1893737C /* Pods-CrashDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemoTests.release.xcconfig"; path = "Target Support Files/Pods-CrashDemoTests/Pods-CrashDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		37E5B8DC4D9CE3ECF65408E0 /* Pods-CrashDemo-CrashDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo-CrashDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-CrashDemo-CrashDemoUITests/Pods-CrashDemo-CrashDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4580B8280E136D03FA232890 /* Pods_CrashDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51FEB08B646EF76F0FA3C4E5 /* Pods-CrashDemo-CrashDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo-CrashDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-CrashDemo-CrashDemoUITests/Pods-CrashDemo-CrashDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		53E9D9B5CDAA987E791AAF99 /* Pods-CrashDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CrashDemoTests/Pods-CrashDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JJCrashGuard.podspec; path = ../JJCrashGuard.podspec; sourceTree = "<group>"; };
+		1B7C5C1A27B5257700E625A2 /* CFuns.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CFuns.hpp; sourceTree = "<group>"; };
+		1B7C5C1B27B5257700E625A2 /* CFuns.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CFuns.mm; sourceTree = "<group>"; };
+		1B7C5C2127B52E0F00E625A2 /* JJCrashGuard+report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJCrashGuard+report.h"; sourceTree = "<group>"; };
+		1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JJCrashGuard+report.m"; sourceTree = "<group>"; };
 		71E25200838BE5C073E46532 /* Pods-CrashDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo.release.xcconfig"; path = "Target Support Files/Pods-CrashDemo/Pods-CrashDemo.release.xcconfig"; sourceTree = "<group>"; };
 		86A3A6A1D62FDD6B1AADC4EB /* Pods-CrashDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo.debug.xcconfig"; path = "Target Support Files/Pods-CrashDemo/Pods-CrashDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +53,7 @@
 		FAC3B7A326521FF200C2932E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAC3B7A426521FF200C2932E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FAC3B7A926521FF200C2932E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FAC3B7AA26521FF200C2932E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FAC3B7AA26521FF200C2932E /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		FAC3B7AD26521FF200C2932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC3B7AF26521FF500C2932E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC3B7B226521FF500C2932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 		FAC3B7CC26521FF600C2932E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC3B7EA2652225900C2932E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		FAC3B7EB2652225900C2932E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		FAC3B7EC2652225900C2932E /* CrashPreventor.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CrashPreventor.podspec; path = ../CrashPreventor.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57E33F865912D3BBA87C4A87 /* Pods_CrashDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880E68D59838C9CDF6600CE5 /* Pods_CrashDemo_CrashDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,10 +100,6 @@
 			children = (
 				86A3A6A1D62FDD6B1AADC4EB /* Pods-CrashDemo.debug.xcconfig */,
 				71E25200838BE5C073E46532 /* Pods-CrashDemo.release.xcconfig */,
-				51FEB08B646EF76F0FA3C4E5 /* Pods-CrashDemo-CrashDemoUITests.debug.xcconfig */,
-				37E5B8DC4D9CE3ECF65408E0 /* Pods-CrashDemo-CrashDemoUITests.release.xcconfig */,
-				53E9D9B5CDAA987E791AAF99 /* Pods-CrashDemoTests.debug.xcconfig */,
-				1AEF212632A3FA2D1893737C /* Pods-CrashDemoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,8 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */,
-				0FFEDEB902672C2A069790BB /* Pods_CrashDemo_CrashDemoUITests.framework */,
-				4580B8280E136D03FA232890 /* Pods_CrashDemoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,12 +141,16 @@
 				FAC3B7A326521FF200C2932E /* AppDelegate.h */,
 				FAC3B7A426521FF200C2932E /* AppDelegate.m */,
 				FAC3B7A926521FF200C2932E /* ViewController.h */,
-				FAC3B7AA26521FF200C2932E /* ViewController.m */,
+				FAC3B7AA26521FF200C2932E /* ViewController.mm */,
 				FAC3B7AC26521FF200C2932E /* Main.storyboard */,
 				FAC3B7AF26521FF500C2932E /* Assets.xcassets */,
 				FAC3B7B126521FF500C2932E /* LaunchScreen.storyboard */,
 				FAC3B7B426521FF500C2932E /* Info.plist */,
 				FAC3B7B526521FF500C2932E /* main.m */,
+				1B7C5C1A27B5257700E625A2 /* CFuns.hpp */,
+				1B7C5C1B27B5257700E625A2 /* CFuns.mm */,
+				1B7C5C2127B52E0F00E625A2 /* JJCrashGuard+report.h */,
+				1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */,
 			);
 			path = CrashDemo;
 			sourceTree = "<group>";
@@ -182,7 +176,7 @@
 		FAC3B7E92652224A00C2932E /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				FAC3B7EC2652225900C2932E /* CrashPreventor.podspec */,
+				1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */,
 				FAC3B7EA2652225900C2932E /* LICENSE */,
 				FAC3B7EB2652225900C2932E /* README.md */,
 			);
@@ -200,7 +194,7 @@
 				FAC3B79C26521FF200C2932E /* Sources */,
 				FAC3B79D26521FF200C2932E /* Frameworks */,
 				FAC3B79E26521FF200C2932E /* Resources */,
-				B03D9B928E3F24E5D2D8D62A /* [CP] Embed Pods Frameworks */,
+				4F22A70A1625CDC6D854B64A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,7 +209,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC3B7D226521FF600C2932E /* Build configuration list for PBXNativeTarget "CrashDemoTests" */;
 			buildPhases = (
-				79999B17A289BD5B915184DE /* [CP] Check Pods Manifest.lock */,
 				FAC3B7B726521FF500C2932E /* Sources */,
 				FAC3B7B826521FF500C2932E /* Frameworks */,
 				FAC3B7B926521FF500C2932E /* Resources */,
@@ -234,11 +227,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC3B7D526521FF600C2932E /* Build configuration list for PBXNativeTarget "CrashDemoUITests" */;
 			buildPhases = (
-				430B97FC5E730E1AC18D5856 /* [CP] Check Pods Manifest.lock */,
 				FAC3B7C226521FF600C2932E /* Sources */,
 				FAC3B7C326521FF600C2932E /* Frameworks */,
 				FAC3B7C426521FF600C2932E /* Resources */,
-				3FAF7081949E02CA37411D21 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,9 +287,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7C3A4927B3F7AE00E597B0 /* JJCrashGuard.podspec in Resources */,
 				FAC3B7B326521FF500C2932E /* LaunchScreen.storyboard in Resources */,
 				FAC3B7B026521FF500C2932E /* Assets.xcassets in Resources */,
-				FAC3B7EF2652225900C2932E /* CrashPreventor.podspec in Resources */,
 				FAC3B7EE2652225900C2932E /* README.md in Resources */,
 				FAC3B7ED2652225900C2932E /* LICENSE in Resources */,
 				FAC3B7AE26521FF200C2932E /* Main.storyboard in Resources */,
@@ -322,68 +313,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3FAF7081949E02CA37411D21 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrashDemo-CrashDemoUITests/Pods-CrashDemo-CrashDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrashDemo-CrashDemoUITests/Pods-CrashDemo-CrashDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrashDemo-CrashDemoUITests/Pods-CrashDemo-CrashDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		430B97FC5E730E1AC18D5856 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CrashDemo-CrashDemoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79999B17A289BD5B915184DE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CrashDemoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B03D9B928E3F24E5D2D8D62A /* [CP] Embed Pods Frameworks */ = {
+		4F22A70A1625CDC6D854B64A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -429,9 +359,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC3B7AB26521FF200C2932E /* ViewController.m in Sources */,
+				FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */,
+				1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */,
 				FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */,
 				FAC3B7B626521FF500C2932E /* main.m in Sources */,
+				1B7C5C2327B52E0F00E625A2 /* JJCrashGuard+report.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +578,6 @@
 		};
 		FAC3B7D326521FF600C2932E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53E9D9B5CDAA987E791AAF99 /* Pods-CrashDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -670,7 +601,6 @@
 		};
 		FAC3B7D426521FF600C2932E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AEF212632A3FA2D1893737C /* Pods-CrashDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -694,7 +624,6 @@
 		};
 		FAC3B7D626521FF600C2932E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51FEB08B646EF76F0FA3C4E5 /* Pods-CrashDemo-CrashDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V94GBZ6B8Y;
@@ -716,7 +645,6 @@
 		};
 		FAC3B7D726521FF600C2932E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37E5B8DC4D9CE3ECF65408E0 /* Pods-CrashDemo-CrashDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V94GBZ6B8Y;

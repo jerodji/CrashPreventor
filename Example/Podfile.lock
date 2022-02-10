@@ -1,16 +1,16 @@
 PODS:
-  - CrashPreventor (0.0.1)
+  - JJCrashGuard (0.1.0)
 
 DEPENDENCIES:
-  - CrashPreventor (from `../`)
+  - JJCrashGuard (from `../`)
 
 EXTERNAL SOURCES:
-  CrashPreventor:
+  JJCrashGuard:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CrashPreventor: e871d05017d5fbd844a626f18e932809e43c3af6
+  JJCrashGuard: ff2ca9a9ed355192290c4d5b5d7e5c5b23cf6fc4
 
-PODFILE CHECKSUM: 59c5ade9d7259bcade0e4c9728d52909c5b09d04
+PODFILE CHECKSUM: 8ecea8d9c1550b77a3e77ba7084c74af3f6d041b
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

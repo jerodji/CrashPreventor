@@ -217,3 +217,137 @@ NSString* SafeString(id a) {
 
 @end
 
+
+
+
+
+@implementation NSArray (safe)
+
+- (id)safeObjectAtIndex:(NSUInteger)index {
+    if (index < 0) {
+        NSString *msg = [NSString stringWithFormat:@"*** %@ index 不能小于 0", [self class]];
+//        NSAssert(NO, msg);
+        NSLog(@"%@", msg);
+        return nil;
+    }
+    if (index >= self.count) {
+        NSString *msg = [NSString stringWithFormat:@"*** %@ 越界, 无效的 index:%lu", [self class], (unsigned long)index];
+//        NSAssert(NO, msg);
+        NSLog(@"%@", msg);
+        return nil;
+    }
+    
+    return [self objectAtIndex:index];
+}
+
+@end
+
+
+@implementation NSMutableArray (safe)
+
+- (void)safeInsertObject:(id)anObject atIndex:(NSUInteger)index {
+    if (index < 0) {
+        NSString *msg = [NSString stringWithFormat:@"%@ index 不能小于 0", [self class]];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (index >= self.count) {
+        NSString *msg = [NSString stringWithFormat:@"%@ 越界, 无效的 index:%lu", [self class], (unsigned long)index];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (anObject == nil) {
+        NSString *msg = [NSString stringWithFormat:@"%@ index:%lu, 不能插入空值", [self class], (unsigned long)index];
+        NSAssert(NO, msg);
+        return;
+    }
+    
+    [self insertObject:anObject atIndex:index];
+}
+
+- (void)safeRemoveObjectAtIndex:(NSUInteger)index {
+    if (index < 0) {
+        NSString *msg = [NSString stringWithFormat:@"%@ index 不能小于 0", [self class]];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (index >= self.count) {
+        NSString *msg = [NSString stringWithFormat:@"%@ 越界, 无效的 index: %lu", [self class], (unsigned long)index];
+        NSAssert(NO, msg);
+        return;
+    }
+    
+    [self removeObjectAtIndex:index];
+}
+
+- (void)safeReplaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
+    if (index < 0) {
+        NSString *msg = [NSString stringWithFormat:@"%@ index 不能小于 0", [self class]];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (index >= self.count) {
+        NSString *msg = [NSString stringWithFormat:@"%@ 越界, 无效的 index:%lu", [self class], (unsigned long)index];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (anObject == nil) {
+        NSString *msg = [NSString stringWithFormat:@"%@ index:%lu, 不能插入空值", [self class], (unsigned long)index];
+        NSAssert(NO, msg);
+        return;
+    }
+    
+    [self replaceObjectAtIndex:index withObject:anObject];
+}
+
+@end
+
+
+
+@implementation NSDictionary (safe)
+
+- (id)safeObjectForKey:(id)aKey {
+    NSArray * keys = self.allKeys;
+    if ([keys containsObject:aKey]) {
+        return [self objectForKey:aKey];
+    }
+    NSString *msg = [NSString stringWithFormat:@"%@ 不包含 key: %@", [self class], aKey];
+//    NSAssert(NO, msg);
+    NSLog(@"%@", msg);
+    return nil;
+}
+
+@end
+
+
+
+@implementation NSMutableDictionary (safe)
+
+- (void)safeSetObject:(id)anObject forKey:(id<NSCopying>)aKey {
+    if (aKey == nil) {
+        NSString *msg = [NSString stringWithFormat:@"%@ key 不能为 nil", [self class]];
+        NSAssert(NO, msg);
+        return;
+    }
+    if (anObject == nil) {
+        //[self setObject:[NSNull null] forKey:aKey];
+        NSString *msg = [NSString stringWithFormat:@"%@ key:%@, 不能插入空值", [self class], aKey];
+        NSAssert(NO, msg);
+        return;
+    }
+    
+    [self setObject:anObject forKey:aKey];
+}
+
+- (void)safeRemoveObjectForKey:(id)aKey {
+    if (aKey == nil) {
+        NSString *msg = [NSString stringWithFormat:@"%@ key 不能为 nil", [self class]];
+        NSAssert(NO, msg);
+        return;
+    }
+    
+    [self removeObjectForKey:aKey];
+}
+
+
+@end
