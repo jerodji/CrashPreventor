@@ -6,12 +6,13 @@
 //
 
 #import "NSDictionary+JJCrashShield.h"
-#import "CrashPreventor.h"
+//#import "JJCrashGuard.h"
+#import "JJCrashGuardCFuncs.h"
 
 
 @implementation NSDictionary (JJCrashShield)
 
-+ (void)openCrashPreventor
++ (void)openShield
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

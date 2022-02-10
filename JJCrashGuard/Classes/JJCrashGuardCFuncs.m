@@ -9,16 +9,55 @@
 #import <objc/runtime.h>
 
 
-@implementation JJCrashGuardCFuncs
+void CPAssert(BOOL condition, NSString* desc, ...)
+{
+    va_list argptr;
+    va_start(argptr, desc);
+    int idx = 0;
+    int params[16] = {0};
+    
+    while (1) {
+        int tmp = va_arg(argptr, int);
+        if (tmp == 0 || tmp == -2041954144 || tmp == INT_MAX || tmp == INT_MIN) {
+            break;
+        }
+        params[idx] = (int)tmp;
+        idx++;
+    }
+    
+//void *a0, *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15 = nil;
+    int a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15 = 0;
+    a0 = params[0];
+    a1 = params[1];
+    a2 = params[2];
+    a3 = params[3];
+    a4 = params[4];
+    a5 = params[5];
+    a6 = params[6];
+    a7 = params[7];
+    a8 = params[8];
+    a9 = params[9];
+    a10 = params[10];
+    a11 = params[11];
+    a12 = params[12];
+    a13 = params[13];
+    a14 = params[14];
+    a15 = params[15];
+    
+    NSString * info = [NSString stringWithFormat:desc, a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15];
 
-@end
-
-
-
-//void CPAssert(BOOL condition, NSString* desc, ...)
-//{
-//    
-//}
+    if([JJCrashGuard shared].debugger){
+        //NSAssert(condition, [@"[JJCrashGuard] error : " stringByAppendingString:desc], ##__VA_ARGS__);
+//        NSAssert(condition, info);
+//        assert(<#e#>)
+        
+    } else {
+        NSLog(@"[JJCrashGuard] error : %@", info);
+    }
+    
+    [[JJCrashGuard shared] report:info];
+    
+}
 
 
 

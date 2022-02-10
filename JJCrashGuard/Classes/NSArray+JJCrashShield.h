@@ -10,7 +10,7 @@
 
 @interface NSArray (JJCrashShield)
 
-+ (void)openCrashPreventor;
++ (void)openShield;
 
 @end
 

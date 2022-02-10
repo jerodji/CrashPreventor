@@ -33,25 +33,9 @@
 /// @param debugger YES 开启断言; NO 不开断言;
 - (void)openDebuggerAssert:(BOOL)debugger;
 
+
+- (void)report:(NSString*)info;
+
+
 @end
-
-
-#define CPAssert(condition, desc, ...) \
-if([CrashPreventor shared].debugger){\
-    NSAssert(condition, [@"[CrashPreventor] error : " stringByAppendingString:desc], ##__VA_ARGS__);\
-}else{\
-    NSString * format = [@"[CrashPreventor] error : " stringByAppendingString:desc];\
-    NSLog(format, ##__VA_ARGS__);\
-}
-
-
-/**
- exchange instance method
- */
-void swizzling_instance_method(Class cls, SEL originSEL, SEL swizzleSEL);
-
-/**
- exchange class method
- */
-void swizzling_class_method(Class cls, SEL originSEL, SEL swizzleSEL);
 

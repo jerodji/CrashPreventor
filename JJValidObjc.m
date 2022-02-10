@@ -5,66 +5,66 @@
  Copyright © 2018年 PAG. All rights reserved.
  */
 
-#import "ValidObjc.h"
+#import "JJValidObjc.h"
 
-@implementation ValidObjc
+@implementation JJValidObjc
 
 #pragma mark - function
 
 BOOL IsNull(id o) {
-    return [ValidObjc isNull:o];
+    return [JJValidObjc isNull:o];
 }
 BOOL IsEmpty(id o) {
-    return [ValidObjc isEmpty:o];
+    return [JJValidObjc isEmpty:o];
 }
 BOOL IsFullSpace(id o) {
-    return [ValidObjc isFullSpace:o];
+    return [JJValidObjc isFullSpace:o];
 }
 
 BOOL NotNull(id o) {
-    return [ValidObjc notNull:o];
+    return [JJValidObjc notNull:o];
 }
 BOOL NotEmpty(id o) {
-    return [ValidObjc notEmpty:o];
+    return [JJValidObjc notEmpty:o];
 }
 BOOL NotFullSpace(id o) {
-    return [ValidObjc notFullSpace:o];
+    return [JJValidObjc notFullSpace:o];
 }
 
 BOOL NotNullNotEmpty(id o) {
-    return [ValidObjc notNullNotEmpty:o];
+    return [JJValidObjc notNullNotEmpty:o];
 }
 
 /* length > 0, 不全是空格 */
 BOOL ValidString(id a) {
-    return [ValidObjc validString:a];
+    return [JJValidObjc validString:a];
 }
 
 /* count > 0 */
 BOOL ValidArray(id a) {
-    return [ValidObjc validArray:a];
+    return [JJValidObjc validArray:a];
 }
 
 /* 有Keys */
 BOOL ValidDictionary(id a) {
-    return [ValidObjc validDictionary:a];
+    return [JJValidObjc validDictionary:a];
 }
 
 BOOL ValidObject(id a) {
-    return [ValidObjc validObject:a];
+    return [JJValidObjc validObject:a];
 }
 
 NSString* SafeString(id a) {
-    return [ValidObjc safeStr:a];
+    return [JJValidObjc safeStr:a];
 }
 //NSString* ConstraintString(id a) {
-//    return [ValidObjc constraintStr:a];
+//    return [JJValidObjc constraintStr:a];
 //}
 
 #pragma mark - Method
 
 + (NSString*)safeStr:(id)obj {
-    if ([ValidObjc validString:obj]) {
+    if ([JJValidObjc validString:obj]) {
         return (NSString*)obj;
     } else {
         return @"";
@@ -73,7 +73,7 @@ NSString* SafeString(id a) {
 
 
 + (NSString*)constraintStr:(id)obj {
-    if ([ValidObjc validString:obj]) {
+    if ([JJValidObjc validString:obj]) {
         return (NSString*)obj;
     } else {
         return @" ";
@@ -81,7 +81,7 @@ NSString* SafeString(id a) {
 }
 
 + (BOOL)validString:(id)obj {
-    if ([ValidObjc isNull:obj]) {
+    if ([JJValidObjc isNull:obj]) {
         return NO;
     }
     if (![obj isKindOfClass:[NSString class]]) {
@@ -89,7 +89,7 @@ NSString* SafeString(id a) {
     }
     
     NSString *str = (NSString*)obj;
-    if (str.length>0 && ![ValidObjc isFullSpace:str]) {
+    if (str.length>0 && ![JJValidObjc isFullSpace:str]) {
         return YES;
     } else {
         return NO;
@@ -97,7 +97,7 @@ NSString* SafeString(id a) {
 }
 
 + (BOOL)validArray:(id)obj {
-    if ([ValidObjc isNull:obj]) {
+    if ([JJValidObjc isNull:obj]) {
         return NO;
     }
     if (![obj isKindOfClass:[NSArray class]]) {
@@ -111,7 +111,7 @@ NSString* SafeString(id a) {
 }
 
 + (BOOL)validDictionary:(id)obj {
-    if ([ValidObjc isNull:obj]) {
+    if ([JJValidObjc isNull:obj]) {
         return NO;
     }
     if (![obj isKindOfClass:[NSDictionary class]]) {
@@ -125,13 +125,13 @@ NSString* SafeString(id a) {
 }
 
 + (BOOL)validObject:(id)obj {
-    if ([ValidObjc isNull:obj]) {
+    if ([JJValidObjc isNull:obj]) {
         return NO;
     }
-    if ([ValidObjc isEmpty:obj]) {
+    if ([JJValidObjc isEmpty:obj]) {
         return NO;
     }
-    if ([obj isKindOfClass:[NSString class]] && [ValidObjc isFullSpace:(NSString*)obj]) {
+    if ([obj isKindOfClass:[NSString class]] && [JJValidObjc isFullSpace:(NSString*)obj]) {
         return NO;
     }
     return YES;
@@ -208,7 +208,7 @@ NSString* SafeString(id a) {
 }
 
 + (BOOL)notNullNotEmpty:(id)obj {
-    if ([ValidObjc notNull:obj] && [ValidObjc notEmpty:obj]) {
+    if ([JJValidObjc notNull:obj] && [JJValidObjc notEmpty:obj]) {
         return YES;
     }
     return NO;
@@ -221,7 +221,7 @@ NSString* SafeString(id a) {
 
 
 
-@implementation NSArray (safe)
+@implementation NSArray (jjsafe)
 
 - (id)safeObjectAtIndex:(NSUInteger)index {
     if (index < 0) {
@@ -243,7 +243,7 @@ NSString* SafeString(id a) {
 @end
 
 
-@implementation NSMutableArray (safe)
+@implementation NSMutableArray (jjsafe)
 
 - (void)safeInsertObject:(id)anObject atIndex:(NSUInteger)index {
     if (index < 0) {
@@ -304,7 +304,7 @@ NSString* SafeString(id a) {
 
 
 
-@implementation NSDictionary (safe)
+@implementation NSDictionary (jjsafe)
 
 - (id)safeObjectForKey:(id)aKey {
     NSArray * keys = self.allKeys;
@@ -321,7 +321,7 @@ NSString* SafeString(id a) {
 
 
 
-@implementation NSMutableDictionary (safe)
+@implementation NSMutableDictionary (jjsafe)
 
 - (void)safeSetObject:(id)anObject forKey:(id<NSCopying>)aKey {
     if (aKey == nil) {

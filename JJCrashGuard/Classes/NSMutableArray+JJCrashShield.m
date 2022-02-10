@@ -6,12 +6,13 @@
 //
 
 #import "NSMutableArray+JJCrashShield.h"
-#import "CrashPreventor.h"
+//#import "JJCrashGuard.h"
+#import "JJCrashGuardCFuncs.h"
 
 
 @implementation NSMutableArray (JJCrashShield)
 
-+ (void)openCrashPreventor {
++ (void)openShield {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         swizzling_instance_method([NSMutableArray class], @selector(insertObjects:atIndexes:), @selector(safe_insertObjects:atIndexes:));

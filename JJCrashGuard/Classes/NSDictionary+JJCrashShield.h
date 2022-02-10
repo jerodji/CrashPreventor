@@ -10,6 +10,6 @@
 
 @interface NSDictionary (JJCrashShield)
 
-+ (void)openCrashPreventor;
++ (void)openShield;
 
 @end

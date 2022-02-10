@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '6.0'
 
-  s.source_files = 'CrashPreventor/Classes/**/*'
+  s.source_files = 'JJCrashGuard/Classes/**/*'
   
   # s.resource_bundles = {
   #   'CrashPreventor' => ['CrashPreventor/Assets/*.png']
@@ -39,4 +39,6 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  
 end

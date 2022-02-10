@@ -10,26 +10,26 @@
 
 #pragma mark - def
 
-#define IS_NULL(o)      [ValidObjc isNull:(o)]
-#define IS_EMPTY(o)     [ValidObjc isEmpty:(o)]
-#define Is_FULL_SPACE(o) [ValidObjc isFullSpace:(o)]
+#define IS_NULL(o)      [JJValidObjc isNull:(o)]
+#define IS_EMPTY(o)     [JJValidObjc isEmpty:(o)]
+#define Is_FULL_SPACE(o) [JJValidObjc isFullSpace:(o)]
 
-#define NOT_NULL(o)      [ValidObjc notNull:(o)]
-#define NOT_EMPTY(o)     [ValidObjc notEmpty:(o)]
-#define NOT_FULL_SPACE(o) [ValidObjc notFullSpace:(o)]
+#define NOT_NULL(o)      [JJValidObjc notNull:(o)]
+#define NOT_EMPTY(o)     [JJValidObjc notEmpty:(o)]
+#define NOT_FULL_SPACE(o) [JJValidObjc notFullSpace:(o)]
 
-#define NOT_NULL_EMPTY(o) [ValidObjc notNullNotEmpty:(o)]
+#define NOT_NULL_EMPTY(o) [JJValidObjc notNullNotEmpty:(o)]
 
-#define VALID_STRING(a)     [ValidObjc validString:(a)]
-#define VALID_ARRAY(a)      [ValidObjc validArray:(a)]
-#define VALID_DICTIONARY(a) [ValidObjc validDictionary:(a)]
-#define VALID_OBJECT(a)     [ValidObjc validObject:(a)]
+#define VALID_STRING(a)     [JJValidObjc validString:(a)]
+#define VALID_ARRAY(a)      [JJValidObjc validArray:(a)]
+#define VALID_DICTIONARY(a) [JJValidObjc validDictionary:(a)]
+#define VALID_OBJECT(a)     [JJValidObjc validObject:(a)]
 
-#define SAFE_STRING(a) [ValidObjc safeStr:(a)]
+#define SAFE_STRING(a) [JJValidObjc safeStr:(a)]
 
-#define SPACE_STRING(obj) [ValidObjc constraintStr:(obj)]
+#define SPACE_STRING(obj) [JJValidObjc constraintStr:(obj)]
 
-@interface ValidObjc : NSObject
+@interface JJValidObjc : NSObject
 
 #pragma mark - function
 
@@ -74,24 +74,24 @@ BOOL NotNullNotEmpty(id o);
 
 
 
-@interface NSArray<T> (safe)
+@interface NSArray<T> (jjsafe)
 - (T)safeObjectAtIndex:(NSUInteger)index;
 @end
 
 
-@interface NSMutableArray<T> (safe)
+@interface NSMutableArray<T> (jjsafe)
 - (void)safeInsertObject:(T)anObject atIndex:(NSUInteger)index;
 - (void)safeRemoveObjectAtIndex:(NSUInteger)index;
 - (void)safeReplaceObjectAtIndex:(NSUInteger)index withObject:(T)anObject;
 @end
 
 
-@interface NSDictionary<K, T> (safe)
+@interface NSDictionary<K, T> (jjsafe)
 - (T)safeObjectForKey:(K)aKey;
 @end
 
 
-@interface NSMutableDictionary<K, T> (safe)
+@interface NSMutableDictionary<K, T> (jjsafe)
 - (void)safeSetObject:(T)anObject forKey:(K <NSCopying>)aKey;
 - (void)safeRemoveObjectForKey:(K)aKey;
 @end
