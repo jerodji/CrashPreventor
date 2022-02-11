@@ -34,7 +34,10 @@
 - (void)openDebuggerAssert:(BOOL)debugger;
 
 
-- (void)report:(NSString*)info;
+/// 使用扩展实现重写次方法,实现自己的上报日志逻辑.
+/// @param log 日志信息
+/// @param info 堆栈信息,可能为 nil.
+- (void)reportLog:(NSString*)log stackInfo:(NSString*)info;
 
 
 @end

@@ -9,9 +9,9 @@
 
 @implementation JJCrashGuard (report)
 
-- (void)report:(NSString*)info {
+- (void)reportLog:(NSString*)log stackInfo:(NSString*)info {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"%s 扩展, 自己的上报方法, %@", __func__, info);        
+        NSLog(@"扩展, 自己的上报方法, %@", log);
     });
 }
 

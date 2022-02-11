@@ -8,13 +8,50 @@
 #import "JJCrashGuardCFuncs.h"
 #import <objc/runtime.h>
 
+@interface JJCrashGuard (handleError)
+- (void)handleInfoWith:(BOOL)condition log:(NSString*)log;
+@end
+
+@implementation JJCrashGuard (handleError)
+
+//- (void)assert:(BOOL)condition format:(NSString*)format, ... NS_REQUIRES_NIL_TERMINATION {
+//    [self assert:condition format:format, 1, 2, 3];
+//}
+
+//- (void)report:(id)firstArg, ... NS_REQUIRES_NIL_TERMINATION {
+//    NSLog(@"firstArg : %@", firstArg);
+//
+//    va_list args; // 定义一个指向个数可变的参数列表指针；
+//    va_start(args, firstArg);
+//
+//
+//    while (1) {
+//        void* arg = va_arg(args, void*);
+//        if (arg == nil) break;
+//        NSLog(@"arg : %d", arg);
+//    }
+//
+//    va_end(args);
+//}
+
+- (void)handleInfoWith:(BOOL)condition log:(NSString*)log {
+    NSLog(@"[JJCrashGuard] error : %@", log);
+    if([JJCrashGuard shared].debugger) {
+        NSAssert(condition, @"[JJCrashGuard] error : %@", log);
+    }
+    [[JJCrashGuard shared] reportLog:log stackInfo:nil];
+}
+
+@end
+
 
 void CPAssert(BOOL condition, NSString* desc, ...)
 {
     va_list argptr;
     va_start(argptr, desc);
-    int idx = 0;
+    
     int params[16] = {0};
+    int idx = 0;
     
     while (1) {
         int tmp = va_arg(argptr, int);
@@ -44,19 +81,9 @@ void CPAssert(BOOL condition, NSString* desc, ...)
     a14 = params[14];
     a15 = params[15];
     
-    NSString * info = [NSString stringWithFormat:desc, a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15];
+    NSString * log = [NSString stringWithFormat:desc, a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15];
 
-    if([JJCrashGuard shared].debugger){
-        //NSAssert(condition, [@"[JJCrashGuard] error : " stringByAppendingString:desc], ##__VA_ARGS__);
-//        NSAssert(condition, info);
-//        assert(<#e#>)
-        
-    } else {
-        NSLog(@"[JJCrashGuard] error : %@", info);
-    }
-    
-    [[JJCrashGuard shared] report:info];
-    
+    [[JJCrashGuard shared] handleInfoWith:condition log:log];
 }
 
 

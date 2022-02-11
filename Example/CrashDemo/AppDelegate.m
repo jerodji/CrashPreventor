@@ -18,18 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // open crash prevent
+//    // open crash prevent
     [[JJCrashGuard shared] openShield];
+//
+//    // open assert to help debug, it's not work on release
+//    [[JJCrashGuard shared] openDebuggerAssert:YES];
     
-    // open assert to help debug, it's not work on release
-//    [[CrashPreventor shared] openDebuggerAssert:YES];
-    
-    
-//    [[JJCrashGuard shared] report:@"repooot %d %d %d", 7, 53 ,247, nil];
-    
+
     NSArray * arr = @[@1, @2];
-    id obj = arr[3];
-    NSLog(@"");
+    id obj = arr[5];
+//    NSLog(@"");
     
     
     return YES;

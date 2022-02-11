@@ -9,7 +9,5 @@
 
 @interface JJCrashGuard (report)
 
-- (void)report:(NSString*)info;
-
 
 @end

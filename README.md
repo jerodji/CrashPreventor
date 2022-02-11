@@ -9,7 +9,7 @@
 ## Installation
 
 ```ruby
-pod 'CrashPreventor'
+pod 'JJCrashGuard'
 ```
 
 ## Introduce
@@ -22,15 +22,48 @@ Crash防护框架，无感知，无乳入侵。
 
 ## Use
 
+开启所有防护。
+
 ```objc
 // open crash prevent
-// 开启防护
-[[CrashPreventor shared] openPreventor];
-
-// open assert to help debug, it's not work on release
-// 是否打开断言帮助调试，Release模式下此设置无效。
-[[CrashPreventor shared] openDebuggerAssert:YES];
+[[JJCrashGuard shared] openShield];
 ```
+
+也可以选择需要的防护类型：
+
+```objc
+[self openShieldWith:@[
+    [NSArray class], [NSMutableArray class],
+    [NSDictionary class], [NSMutableDictionary class]]
+];
+```
+
+
+
+可以打开断言调试，Release模式下此设置无效
+
+```objc
+// open assert to help debug, it's not work on release
+[[JJCrashGuard shared] openDebuggerAssert:YES];
+```
+
+
+
+如果需要上报日志，需要给 `JJCrashGuard` 增加一个扩展，重写下面的方法，第一个参数是日志信息，第二个参数是堆栈信息。
+
+```objc
+@implementation JJCrashGuard (report)
+
+- (void)reportLog:(NSString*)log stackInfo:(NSString*)info {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"扩展, 自己的上报方法, %@", log);
+    });
+}
+
+@end
+```
+
+
 
 
 

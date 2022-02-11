@@ -166,7 +166,7 @@
                 newObjs[newCnt] = objects[i];
                 newCnt++;
             } else {
-                NSLog(@"*** [CrashPreventor] warning, -[__NSPlaceholderArray initWithObjects:count:], object cannot be nil at %d", i);
+                NSLog(@"*** [JJCrashGuard] warning, -[__NSPlaceholderArray initWithObjects:count:], object cannot be nil at %d", i);
             }
         }
         return [self __NSPlaceholderArray_safe_initWithObjects:newObjs count:newCnt];
@@ -292,7 +292,7 @@
     if ((range.location + range.length) <= self.count) {
         return [self __NSFrozenArrayM_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"*** warning: [CrashPreventor]: -[__NSFrozenArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        NSLog(@"*** warning: [JJCrashGuard]: -[__NSFrozenArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSFrozenArrayM_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;

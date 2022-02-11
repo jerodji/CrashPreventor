@@ -1,6 +1,6 @@
 //
 //  NSDictionary+preventor.m
-//  CrashPreventor
+//  JJCrashGuard
 //
 //  Created by Jerod on 2021/5/17.
 //
@@ -45,7 +45,7 @@
     if (objects && keys)
     {
         if (objects[0] == nil || keys[0] == nil) {
-            NSLog(@"*** [CrashPreventor] warning, -[__NSPlaceholderDictionary initWithObjects:forKeys:count:], objects or keys is nil");
+            NSLog(@"*** [JJCrashGuard] warning, -[__NSPlaceholderDictionary initWithObjects:forKeys:count:], objects or keys is nil");
             return [self __NSPlaceholderDictionary_safe_initWithObjects:NULL forKeys:NULL count:0];
         }
         
@@ -56,7 +56,7 @@
                 newObjs[newCnt] = objects[i];
                 newCnt++;
             } else {
-                NSLog(@"*** [CrashPreventor] warning, -[__NSPlaceholderArray initWithObjects:forKeys:count:], object cannot be nil at %d", i);
+                NSLog(@"*** [JJCrashGuard] warning, -[__NSPlaceholderArray initWithObjects:forKeys:count:], object cannot be nil at %d", i);
             }
         }
         return [self __NSPlaceholderDictionary_safe_initWithObjects:objects forKeys:keys count:cnt];
@@ -75,7 +75,7 @@
     }
     else
     {
-        NSLog(@"*** [CrashPreventor] warning, -[__NSPlaceholderArray initWithObjects:forKeys:], object, keys cannot be nil; or objects and keys count not equal.");
+        NSLog(@"*** [JJCrashGuard] warning, -[__NSPlaceholderArray initWithObjects:forKeys:], object, keys cannot be nil; or objects and keys count not equal.");
         return [self __NSPlaceholderDictionary_safe_initWithObjects:nil forKeys:nil];
     }
 }
@@ -97,7 +97,7 @@
 //    if (aKey) {
 //        return [self __NSSingleEntryDictionaryI_safe_objectForKey:aKey];
 //    } else {
-//        CPAssert(NO, @"*** [CrashPreventor], -[__NSSingleEntryDictionaryI objectForKey:], key can not be nil.");
+//        CPAssert(NO, @"*** [JJCrashGuard], -[__NSSingleEntryDictionaryI objectForKey:], key can not be nil.");
 //        return nil;
 //    }
 //}
@@ -106,7 +106,7 @@
 //    if (key) {
 //        return [self __NSSingleEntryDictionaryI_safe_objectForKeyedSubscript:key];
 //    } else {
-//        CPAssert(NO, @"*** [CrashPreventor], -[__NSSingleEntryDictionaryI objectForKeyedSubscript:], key can not be nil.");
+//        CPAssert(NO, @"*** [JJCrashGuard], -[__NSSingleEntryDictionaryI objectForKeyedSubscript:], key can not be nil.");
 //        return nil;
 //    }
 //}

@@ -1,6 +1,6 @@
 //
 //  NSMutableDictionary+preventor.m
-//  CrashPreventor
+//  JJCrashGuard
 //
 //  Created by Jerod on 2021/5/17.
 //
@@ -28,7 +28,7 @@
     if (anObject && aKey) {
         [self __NSDictionaryM_safe_setObject:anObject forKey:aKey];
     } else {
-        CPAssert(NO, @"*** [CrashPreventor], -[__NSDictionaryM setObject:forKey:], object or key cannot be nil.");
+        CPAssert(NO, @"*** [JJCrashGuard], -[__NSDictionaryM setObject:forKey:], object or key cannot be nil.");
     }
 }
 
@@ -36,7 +36,7 @@
     if (key) {
         [self __NSDictionaryM_safe_setObject:obj forKeyedSubscript:key];
     } else {
-        CPAssert(NO, @"*** [CrashPreventor], -[__NSDictionaryM setObject:forKeyedSubscript:], key cannot be nil.");
+        CPAssert(NO, @"*** [JJCrashGuard], -[__NSDictionaryM setObject:forKeyedSubscript:], key cannot be nil.");
     }
 }
 
@@ -44,7 +44,7 @@
     if (aKey) {
         [self __NSDictionaryM_safe_removeObjectForKey:aKey];
     } else {
-        CPAssert(NO, @"*** [CrashPreventor], -[__NSDictionaryM removeObjectForKey:]: key cannot be nil");
+        CPAssert(NO, @"*** [JJCrashGuard], -[__NSDictionaryM removeObjectForKey:]: key cannot be nil");
     }
 }
 

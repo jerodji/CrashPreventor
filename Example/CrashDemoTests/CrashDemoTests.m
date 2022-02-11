@@ -6,7 +6,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <CrashPreventor/CrashPreventor.h>
+#import <JJCrashGuard/JJCrashGuard.h>
 
 @interface Human : NSObject
 @property (nonatomic, copy) NSString *name;

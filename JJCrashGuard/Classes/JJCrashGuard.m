@@ -39,7 +39,10 @@
 
 
 - (void)openShield {
-    [self openShieldWith:@[[NSArray class]]];
+    [self openShieldWith:@[
+        [NSArray class], [NSMutableArray class],
+        [NSDictionary class], [NSMutableDictionary class]]
+    ];
 }
 
 - (void)openShieldWith:(NSArray<Class>*)list {
@@ -54,11 +57,11 @@
         if ([obj isEqual:[NSArray class]]) {
             [NSArray openShield];
         } else if ([obj isEqual:[NSMutableArray class]]) {
-            
+            [NSMutableArray openShield];
         } else if ([obj isEqual:[NSDictionary class]]) {
-            
+            [NSDictionary openShield];
         } else if ([obj isEqual:[NSMutableDictionary class]]) {
-            
+            [NSMutableDictionary openShield];
         }
         
         
@@ -73,25 +76,9 @@
 #endif
 }
 
-- (void)report:(NSString*)info {
+- (void)reportLog:(NSString*)log stackInfo:(NSString*)info {
     //请扩展实现自己的上报方法
 }
-
-//- (void)report:(id)firstArg, ... NS_REQUIRES_NIL_TERMINATION {
-//    NSLog(@"firstArg : %@", firstArg);
-//    
-//    va_list args; // 定义一个指向个数可变的参数列表指针；
-//    va_start(args, firstArg);
-//    
-//    
-//    while (1) {
-//        void* arg = va_arg(args, void*);
-//        if (arg == nil) break;
-//        NSLog(@"arg : %d", arg);
-//    }
-//    
-//    va_end(args);
-//}
 
 @end
 
