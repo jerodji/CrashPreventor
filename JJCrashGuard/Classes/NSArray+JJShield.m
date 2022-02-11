@@ -5,9 +5,9 @@
 //  Created by Jerod on 2021/5/17.
 //
 
-#import "NSArray+JJCrashShield.h"
+#import "NSArray+JJShield.h"
 //#import "JJCrashGuard.h"
-#import "JJCrashGuardCFuncs.h"
+#import "JJShieldCFuncs.h"
 
 
 @implementation NSArray (JJCrashShield)

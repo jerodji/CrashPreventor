@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSArray (JJCrashShield)
+@interface NSArray (JJShield)
 
 + (void)openShield;
 

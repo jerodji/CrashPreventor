@@ -1,5 +1,5 @@
 PODS:
-  - JJCrashGuard (0.1.0)
+  - JJCrashGuard (0.2.0)
 
 DEPENDENCIES:
   - JJCrashGuard (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JJCrashGuard: ff2ca9a9ed355192290c4d5b5d7e5c5b23cf6fc4
+  JJCrashGuard: 396c814c0fa784a703ae009605378f56c3e64e18
 
 PODFILE CHECKSUM: 8ecea8d9c1550b77a3e77ba7084c74af3f6d041b
 

@@ -6,10 +6,10 @@
 //
 
 #import "JJCrashGuard.h"
-#import "NSArray+JJCrashShield.h"
-#import "NSMutableArray+JJCrashShield.h"
-#import "NSDictionary+JJCrashShield.h"
-#import "NSMutableDictionary+JJCrashShield.h"
+#import "NSArray+JJShield.h"
+#import "NSMutableArray+JJShield.h"
+#import "NSDictionary+JJShield.h"
+#import "NSMutableDictionary+JJShield.h"
 
 
 @implementation JJCrashGuard

@@ -1,11 +1,11 @@
 //
-//  JJCrashGuardCFuncs.m
+//  JJShieldCFuncs.m
 //  JJCrashGuard
 //
 //  Created by CN210208396 on 2022/2/10.
 //
 
-#import "JJCrashGuardCFuncs.h"
+#import "JJShieldCFuncs.h"
 #import <objc/runtime.h>
 
 @interface JJCrashGuard (handleError)

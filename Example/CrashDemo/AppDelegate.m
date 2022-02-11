@@ -22,12 +22,13 @@
     [[JJCrashGuard shared] openShield];
 //
 //    // open assert to help debug, it's not work on release
-//    [[JJCrashGuard shared] openDebuggerAssert:YES];
+    [[JJCrashGuard shared] openDebuggerAssert:YES];
     
 
     NSArray * arr = @[@1, @2];
-    id obj = arr[5];
-//    NSLog(@"");
+//    id obj = arr[5];
+    id obj = [arr objectAtIndex:3];
+    NSLog(@"== obj = %@", obj);
     
     
     return YES;

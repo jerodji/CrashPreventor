@@ -1,4 +1,4 @@
-# CrashPreventor
+# JJCrashGuard
 
 [![Version](https://img.shields.io/cocoapods/v/RJSBridge.svg?style=flat)](https://cocoapods.org/pods/RJSBridge)
 [![License](https://img.shields.io/cocoapods/l/CrashPreventor.svg?style=flat)](https://cocoapods.org/pods/RJSBridge)
@@ -14,7 +14,7 @@ pod 'JJCrashGuard'
 
 ## Introduce
 
-Crash防护框架，无感知，无乳入侵。
+Crash防护框架，无感知，无入侵。
 
 目前支持 NSArray，NSMutableArrat，NSDictionary，NSMutableDictionary.
 
