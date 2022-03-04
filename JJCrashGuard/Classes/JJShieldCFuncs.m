@@ -7,6 +7,8 @@
 
 #import "JJShieldCFuncs.h"
 #import <objc/runtime.h>
+#import "JJCrashGuard.h"
+
 
 @interface JJCrashGuard (handleError)
 - (void)handleInfoWith:(BOOL)condition log:(NSString*)log;
@@ -35,11 +37,12 @@
 //}
 
 - (void)handleInfoWith:(BOOL)condition log:(NSString*)log {
-    NSLog(@"[JJCrashGuard] error : %@", log);
+    NSString * rl = [@"[JJCrashGuard] error : " stringByAppendingString:log];
+    NSLog(@"%@", rl);
     if([JJCrashGuard shared].debugger) {
         NSAssert(condition, @"[JJCrashGuard] error : %@", log);
     }
-    [[JJCrashGuard shared] reportLog:log stackInfo:nil];
+    [[JJCrashGuard shared] reportLog:rl stackInfo:nil];
 }
 
 @end

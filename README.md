@@ -4,9 +4,15 @@
 [![License](https://img.shields.io/cocoapods/l/CrashPreventor.svg?style=flat)](https://cocoapods.org/pods/RJSBridge)
 [![Platform](https://img.shields.io/cocoapods/p/CrashPreventor.svg?style=flat)](https://cocoapods.org/pods/CrashPreventor)
 
-
-
 ## Installation
+
+0.1.0 版本：
+
+```ruby
+pod 'CrashPreventor', '0.1.0'
+```
+
+0.2.0 版本以后，更新中...
 
 ```ruby
 pod 'JJCrashGuard'
