@@ -2,7 +2,7 @@
 //  JJShieldCFuncs.m
 //  JJCrashGuard
 //
-//  Created by CN210208396 on 2022/2/10.
+//  Created by Jerod on 2022/2/10.
 //
 
 #import "JJShieldCFuncs.h"
@@ -48,44 +48,26 @@
 @end
 
 
-void CPAssert(BOOL condition, NSString* desc, ...)
-{
-    va_list argptr;
-    va_start(argptr, desc);
-    
-    int params[16] = {0};
-    int idx = 0;
-    
-    while (1) {
-        int tmp = va_arg(argptr, int);
-        if (tmp == 0 || tmp == -2041954144 || tmp == INT_MAX || tmp == INT_MIN) {
-            break;
-        }
-        params[idx] = (int)tmp;
-        idx++;
-    }
-    
-//void *a0, *a1, *a2, *a3, *a4, *a5, *a6, *a7, *a8, *a9, *a10, *a11, *a12, *a13, *a14, *a15 = nil;
-    int a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15 = 0;
-    a0 = params[0];
-    a1 = params[1];
-    a2 = params[2];
-    a3 = params[3];
-    a4 = params[4];
-    a5 = params[5];
-    a6 = params[6];
-    a7 = params[7];
-    a8 = params[8];
-    a9 = params[9];
-    a10 = params[10];
-    a11 = params[11];
-    a12 = params[12];
-    a13 = params[13];
-    a14 = params[14];
-    a15 = params[15];
-    
-    NSString * log = [NSString stringWithFormat:desc, a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15];
 
+#pragma mark - C Functions
+
+
+void CPLog(NSString *format, ...) {
+    NSString *cpFormat = [@"[CrashGuard] " stringByAppendingString:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+    va_end(args);
+    NSLog(@"%@", log);
+}
+
+
+void CPAssert(BOOL condition, NSString* format, ...)
+{
+    va_list argsPtr;
+    va_start(argsPtr, format);
+    NSString *log = [[NSString alloc] initWithFormat:format arguments:argsPtr];
+    va_end(argsPtr);
     [[JJCrashGuard shared] handleInfoWith:condition log:log];
 }
 

@@ -10,7 +10,6 @@
 		1B7C3A4927B3F7AE00E597B0 /* JJCrashGuard.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */; };
 		1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C1B27B5257700E625A2 /* CFuns.mm */; };
 		1B7C5C2327B52E0F00E625A2 /* JJCrashGuard+report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */; };
-		1B7C5C2627B6159C00E625A2 /* NSArray+mjy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C2527B6159C00E625A2 /* NSArray+mjy.m */; };
 		83FC56AB00C302BDB3F0515C /* Pods_CrashDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */; };
 		FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7A426521FF200C2932E /* AppDelegate.m */; };
 		FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7AA26521FF200C2932E /* ViewController.mm */; };
@@ -47,8 +46,6 @@
 		1B7C5C1B27B5257700E625A2 /* CFuns.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CFuns.mm; sourceTree = "<group>"; };
 		1B7C5C2127B52E0F00E625A2 /* JJCrashGuard+report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJCrashGuard+report.h"; sourceTree = "<group>"; };
 		1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JJCrashGuard+report.m"; sourceTree = "<group>"; };
-		1B7C5C2427B6159C00E625A2 /* NSArray+mjy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+mjy.h"; sourceTree = "<group>"; };
-		1B7C5C2527B6159C00E625A2 /* NSArray+mjy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+mjy.m"; sourceTree = "<group>"; };
 		71E25200838BE5C073E46532 /* Pods-CrashDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo.release.xcconfig"; path = "Target Support Files/Pods-CrashDemo/Pods-CrashDemo.release.xcconfig"; sourceTree = "<group>"; };
 		86A3A6A1D62FDD6B1AADC4EB /* Pods-CrashDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashDemo.debug.xcconfig"; path = "Target Support Files/Pods-CrashDemo/Pods-CrashDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +95,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B69726727ED75E600FE60D2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAC3B7AC26521FF200C2932E /* Main.storyboard */,
+				FAC3B7AF26521FF500C2932E /* Assets.xcassets */,
+				FAC3B7B126521FF500C2932E /* LaunchScreen.storyboard */,
+				FAC3B7B426521FF500C2932E /* Info.plist */,
+				1B7C5C1A27B5257700E625A2 /* CFuns.hpp */,
+				1B7C5C1B27B5257700E625A2 /* CFuns.mm */,
+				FAC3B7B526521FF500C2932E /* main.m */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		51749AE78A83D515C711EDB8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,21 +152,13 @@
 		FAC3B7A226521FF200C2932E /* CrashDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1B69726727ED75E600FE60D2 /* Support Files */,
 				FAC3B7A326521FF200C2932E /* AppDelegate.h */,
 				FAC3B7A426521FF200C2932E /* AppDelegate.m */,
 				FAC3B7A926521FF200C2932E /* ViewController.h */,
 				FAC3B7AA26521FF200C2932E /* ViewController.mm */,
 				1B7C5C2127B52E0F00E625A2 /* JJCrashGuard+report.h */,
 				1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */,
-				1B7C5C2427B6159C00E625A2 /* NSArray+mjy.h */,
-				1B7C5C2527B6159C00E625A2 /* NSArray+mjy.m */,
-				FAC3B7AC26521FF200C2932E /* Main.storyboard */,
-				FAC3B7AF26521FF500C2932E /* Assets.xcassets */,
-				FAC3B7B126521FF500C2932E /* LaunchScreen.storyboard */,
-				FAC3B7B426521FF500C2932E /* Info.plist */,
-				FAC3B7B526521FF500C2932E /* main.m */,
-				1B7C5C1A27B5257700E625A2 /* CFuns.hpp */,
-				1B7C5C1B27B5257700E625A2 /* CFuns.mm */,
 			);
 			path = CrashDemo;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 				FAC3B79C26521FF200C2932E /* Sources */,
 				FAC3B79D26521FF200C2932E /* Frameworks */,
 				FAC3B79E26521FF200C2932E /* Resources */,
-				4F22A70A1625CDC6D854B64A /* [CP] Embed Pods Frameworks */,
+				89EB070D6AFC3B8B45764DA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,7 +321,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F22A70A1625CDC6D854B64A /* [CP] Embed Pods Frameworks */ = {
+		89EB070D6AFC3B8B45764DA1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,7 +370,6 @@
 				FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */,
 				1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */,
 				FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */,
-				1B7C5C2627B6159C00E625A2 /* NSArray+mjy.m in Sources */,
 				FAC3B7B626521FF500C2932E /* main.m in Sources */,
 				1B7C5C2327B52E0F00E625A2 /* JJCrashGuard+report.m in Sources */,
 			);
