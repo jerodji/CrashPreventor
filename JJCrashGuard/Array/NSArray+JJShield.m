@@ -73,7 +73,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArray0_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSArray0 objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArray0 objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -81,7 +81,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArray0_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSArray0 objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count, (int)index);
+        CPError(@"-[__NSArray0 objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count, (int)index);
         return nil;
     }
 }
@@ -90,13 +90,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSArray0 subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSArray0 subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSArray0_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"warning: -[__NSArray0 subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSArray0 subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSArray0_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -106,7 +106,7 @@
         return [self __NSArray0_safe_arrayByAddingObject:anObject];
     } else {
         //return [self __NSArray0_safe_arrayByAddingObject:[NSNull null]];
-        CPAssert(NO, @"-[__NSArray0 arrayByAddingObject:], object can not be nil", nil);
+        CPError(@"-[__NSArray0 arrayByAddingObject:], object can not be nil", nil);
         return self;
     }
 }
@@ -117,7 +117,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayI_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayI objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayI objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -125,7 +125,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayI_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayI objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayI objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -134,13 +134,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSArrayI subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSArrayI subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSArrayI_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"warning: -[__NSArrayI subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSArrayI subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSArrayI_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -149,7 +149,7 @@
     if (anObject) {
         return [self __NSArrayI_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"-[__NSArrayI arrayByAddingObject:], object cannot be nil", nil);
+        CPError(@"-[__NSArrayI arrayByAddingObject:], object cannot be nil", nil);
         //return [self __NSArrayI_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }
@@ -166,7 +166,7 @@
                 newObjs[newCnt] = objects[i];
                 newCnt++;
             } else {
-                NSLog(@"*** [JJCrashGuard] warning, -[__NSPlaceholderArray initWithObjects:count:], object cannot be nil at %d", i);
+                CPWarning(@"-[__NSPlaceholderArray initWithObjects:count:], object cannot be nil at %d", i);
             }
         }
         return [self __NSPlaceholderArray_safe_initWithObjects:newObjs count:newCnt];
@@ -181,7 +181,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayI_Transfer_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayI_Transfer objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayI_Transfer objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -189,7 +189,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayI_Transfer_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayI_Transfer objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayI_Transfer objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -198,13 +198,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSArrayI_Transfer subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSArrayI_Transfer subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSArrayI_Transfer_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"warning: -[__NSArrayI_Transfer subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSArrayI_Transfer subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSArrayI_Transfer_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -213,7 +213,7 @@
     if (anObject) {
         return [self __NSArrayI_Transfer_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"-[__NSArrayI_Transfer arrayByAddingObject:], object cannot be nil", nil);
+        CPError(@"-[__NSArrayI_Transfer arrayByAddingObject:], object cannot be nil", nil);
         //return [self __NSArrayI_Transfer_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }
@@ -225,7 +225,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSSingleObjectArrayI_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSSingleObjectArrayI objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSSingleObjectArrayI objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -233,7 +233,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSSingleObjectArrayI_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSSingleObjectArrayI objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSSingleObjectArrayI objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -242,13 +242,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSSingleObjectArrayI subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSSingleObjectArrayI subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSSingleObjectArrayI_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"warning: -[__NSSingleObjectArrayI subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSSingleObjectArrayI subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSSingleObjectArrayI_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -257,7 +257,7 @@
     if (anObject) {
         return [self __NSSingleObjectArrayI_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"-[__NSSingleObjectArrayI arrayByAddingObject:], object cannot be nil", nil);
+        CPError(@"-[__NSSingleObjectArrayI arrayByAddingObject:], object cannot be nil", nil);
         //return [self __NSSingleObjectArrayI_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }
@@ -269,7 +269,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSFrozenArrayM_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSFrozenArrayM objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSFrozenArrayM objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -277,7 +277,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSFrozenArrayM_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSFrozenArrayM objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSFrozenArrayM objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -286,13 +286,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSFrozenArrayM subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSFrozenArrayM subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSFrozenArrayM_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"*** warning: [JJCrashGuard]: -[__NSFrozenArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSFrozenArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSFrozenArrayM_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -301,7 +301,7 @@
     if (anObject) {
         return [self __NSFrozenArrayM_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"-[__NSFrozenArrayM arrayByAddingObject:], object cannot be nil", nil);
+        CPError(@"-[__NSFrozenArrayM arrayByAddingObject:], object cannot be nil", nil);
         //return [self __NSFrozenArrayM_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }
@@ -314,7 +314,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayReversed_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayReversed objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayReversed objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -322,7 +322,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayReversed_safe_objectAtIndexedSubscript:index];
     } else {
-        CPAssert(NO, @"-[__NSArrayReversed objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayReversed objectAtIndexedSubscript:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -331,13 +331,13 @@
         return nil;
     }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"-[__NSArrayReversed subarrayWithRange:], range NSNotFound", nil);
+        CPError(@"-[__NSArrayReversed subarrayWithRange:], range NSNotFound", nil);
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSArrayReversed_safe_subarrayWithRange:range];
     } else {
-        NSLog(@"warning: -[__NSArrayReversed subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPWarning(@"-[__NSArrayReversed subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSArrayReversed_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -346,7 +346,7 @@
     if (anObject) {
         return [self __NSArrayReversed_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"-[__NSArrayReversed arrayByAddingObject:], object cannot be nil", nil);
+        CPError(@"-[__NSArrayReversed arrayByAddingObject:], object cannot be nil", nil);
         //return [self __NSArrayReversed_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }

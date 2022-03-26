@@ -9,8 +9,10 @@
 
 
 void CPLog(NSString *format, ...);
+void CPWarning(NSString *format, ...);
+void CPError(NSString *format, ...);
 
-void CPAssert(BOOL condition, NSString* desc, ...);
+//void CPAssert(BOOL condition, NSString* desc, ...);
 
 
 /** exchange instance method */

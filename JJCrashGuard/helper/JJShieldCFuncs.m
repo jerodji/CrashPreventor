@@ -7,69 +7,45 @@
 
 #import "JJShieldCFuncs.h"
 #import <objc/runtime.h>
-#import "JJCrashGuard.h"
-
-
-@interface JJCrashGuard (handleError)
-- (void)handleInfoWith:(BOOL)condition log:(NSString*)log;
-@end
-
-@implementation JJCrashGuard (handleError)
-
-//- (void)assert:(BOOL)condition format:(NSString*)format, ... NS_REQUIRES_NIL_TERMINATION {
-//    [self assert:condition format:format, 1, 2, 3];
-//}
-
-//- (void)report:(id)firstArg, ... NS_REQUIRES_NIL_TERMINATION {
-//    NSLog(@"firstArg : %@", firstArg);
-//
-//    va_list args; // 定义一个指向个数可变的参数列表指针；
-//    va_start(args, firstArg);
-//
-//
-//    while (1) {
-//        void* arg = va_arg(args, void*);
-//        if (arg == nil) break;
-//        NSLog(@"arg : %d", arg);
-//    }
-//
-//    va_end(args);
-//}
-
-- (void)handleInfoWith:(BOOL)condition log:(NSString*)log {
-    NSString * rl = [@"[JJCrashGuard] error : " stringByAppendingString:log];
-    NSLog(@"%@", rl);
-    if([JJCrashGuard shared].debugger) {
-        NSAssert(condition, @"[JJCrashGuard] error : %@", log);
-    }
-    [[JJCrashGuard shared] reportLog:rl stackInfo:nil];
-}
-
-@end
-
-
-
-#pragma mark - C Functions
+#import "JJCrashGuard+handleError.h"
 
 
 void CPLog(NSString *format, ...) {
-    NSString *cpFormat = [@"[CrashGuard] " stringByAppendingString:format];
+    NSString *cpFormat = [@"[CrashGuard][info] " stringByAppendingString:format];
     va_list args;
     va_start(args, format);
     NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
     va_end(args);
-    NSLog(@"%@", log);
+    [[JJCrashGuard shared] handleInfoMsg:log];
+}
+
+void CPWarning(NSString *format, ...) {
+    NSString *cpFormat = [@"[CrashGuard][warning] " stringByAppendingString:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+    va_end(args);
+    [[JJCrashGuard shared] handleWarningMsg:log];
+}
+
+void CPError(NSString *format, ...) {
+    NSString *cpFormat = [@"[CrashGuard][error] " stringByAppendingString:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+    va_end(args);
+    [[JJCrashGuard shared] handleErrorMsg:log];
 }
 
 
-void CPAssert(BOOL condition, NSString* format, ...)
-{
-    va_list argsPtr;
-    va_start(argsPtr, format);
-    NSString *log = [[NSString alloc] initWithFormat:format arguments:argsPtr];
-    va_end(argsPtr);
-    [[JJCrashGuard shared] handleInfoWith:condition log:log];
-}
+//void CPAssert(BOOL condition, NSString* format, ...)
+//{
+//    va_list argsPtr;
+//    va_start(argsPtr, format);
+//    NSString *log = [[NSString alloc] initWithFormat:format arguments:argsPtr];
+//    va_end(argsPtr);
+//    [[JJCrashGuard shared] handleInfoWith:condition log:log];
+//}
 
 
 

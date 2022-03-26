@@ -23,7 +23,7 @@
     
 //    // open crash prevent
 //    [[JJCrashGuard shared] beginGuard];
-    [[JJCrashGuard shared] beginGuardTypes:JShieldTypeArray | JShieldTypeKVC];
+//    [[JJCrashGuard shared] beginGuardTypes:JShieldTypeArray];
 
 //    // open assert to help debug, it's not work on release
 //    [[JJCrashGuard shared] openDebuggerAssert:YES];
@@ -44,7 +44,8 @@
         @"NSArray",
         @"NSMutableArray",
         @"NSDictionary",
-        @"NSMutableDictionary"
+        @"NSMutableDictionary",
+        @"KVC"
     ];
 }
 - (UITableView *)tableView {
@@ -83,24 +84,57 @@
 //        [mut insertObject:nil atIndex:3];
     }
     if ([n isEqualToString:@"NSDictionary"]) {
-//        NSDictionary *dic = [NSDictionary dictionary];//__NSDictionary0
+        NSDictionary *dic = [NSDictionary dictionary];//__NSDictionary0
+//        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:nil, nil, nil];
+//        id obj = nil;
+//        NSDictionary *dic = [[NSDictionary alloc] initWithObjects:@[@1, obj] forKeys:@[@"a", @"b"]];
+//        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:nil];
+//        NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:@{@"s": @"1"}];
+//        NSDictionary *dic = [NSDictionary alloc];
+        NSLog(@"%@", dic.class);
+        NSString *key = nil;
+        id v1 = [dic objectForKey:key];
+        id v2 = dic[key];
+//        dic[@"key"] = @"key";
 //        dic = @{
 //            @"ko": @1
 //        };
-        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:nil, nil, nil];
-        NSLog(@"%@", dic.class);
+//        dic[@"s"] = @"q";
 //        id vv = [dic objectForKey:@"kk"];
 //        id vv = dic[@"kk"];
 //        NSLog(@"%@", vv);
-        [dic setValue:nil forKey:@"ko"];
+//        [dic setValue:nil forKey:@"ko"];
+//        [dic valueForKey:@"ll"];
+//       id d = [dic initWithObjects:nil forKeys:nil];
+//        NSLog(@"%@", d);
     }
     if ([n isEqualToString:@"NSMutableDictionary"]) {
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];//__NSDictionaryM
         NSLog(@"%@", dic.class);
-        [dic setObject:nil forKey:@"po"];
+        [dic setValue:@"1" forKey:@"11"];
+        [dic setObject:@"po" forKey:@"po"];
+//        [dic setObject:nil forKey:@"pp"];
+//        [dic setObject:@"oo" forKey:nil];
+        [dic setObject:nil forKeyedSubscript:@"oo"];
+//        [dic setObject:@"qq" forKeyedSubscript:nil];
+        [dic objectForKey:@"22"];
+        dic[@"99"];
+        dic[@"33"] = [NSNull null];
+        dic[@"44"] = nil;
+        dic[@"100"] = @100;
+        NSString * k101 = nil;
+//        dic[k101] = @101;
+        NSLog(@"%@", dic);
+        [dic removeObjectsForKeys:@[@"66"]];
+        [dic removeObjectsForKeys:@[@"11", @"22", @"55"]];
+        [dic removeObjectForKey:@"77"];
+//        [dic removeObjectForKey:nil];
+        [dic removeAllObjects];
     }
-    if ([n isEqualToString:@""]) {
-        
+    if ([n isEqualToString:@"KVC"]) {
+        NSObject *obj = [NSObject new];
+//        [obj setValue:@1 forKey:@"uk"];
+        [obj valueForKey:@"uu"];
     }
 }
 

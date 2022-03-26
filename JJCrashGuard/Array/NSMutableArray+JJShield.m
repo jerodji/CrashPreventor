@@ -48,7 +48,7 @@
 
 - (void)safe_insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes {
     if (!objects || !indexes) {
-        CPAssert(NO, @"*** -[NSMutableArray insertObjects:atIndexs:]: objects or indexes can not be nil");
+        CPError(@"-[NSMutableArray insertObjects:atIndexs:]: objects or indexes can not be nil");
         return;
     }
     [self safe_insertObjects:objects atIndexes:indexes];
@@ -59,7 +59,7 @@
     if (0 <= index && index < self.count) {
         return [self __NSArrayM_safe_objectAtIndex:index];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
+        CPError(@"-[__NSArrayM objectAtIndex:], count %d, __boundsFail: index %d beyond bounds", (int)self.count,(int)index);
         return nil;
     }
 }
@@ -68,7 +68,7 @@
     if (0 <= idx && idx < self.count) {
         return [self __NSArrayM_safe_objectAtIndexedSubscript:idx];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM objectAtIndexedSubscript:]: index %d beyond bounds [0 .. %d]", (int)idx, (int)self.count-1);
+        CPError(@"-[__NSArrayM objectAtIndexedSubscript:]: index %d beyond bounds [0 .. %d]", (int)idx, (int)self.count-1);
         return nil;
     }
 }
@@ -79,13 +79,13 @@
 //        return nil;
 //    }
     if (range.location >= NSNotFound || range.length >= NSNotFound) {
-        CPAssert(NO, @"*** -[__NSArrayM subarrayWithRange:], range NSNotFound");
+        CPError(@"-[__NSArrayM subarrayWithRange:], range NSNotFound");
         return nil;
     };
     if ((range.location + range.length) <= self.count) {
         return [self __NSArrayM_safe_subarrayWithRange:range];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPError(@"-[__NSArrayM subarrayWithRange:], range location %d + length %d beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         return [self __NSArrayM_safe_subarrayWithRange:NSMakeRange(range.location, self.count - range.location)];
     }
     return nil;
@@ -95,7 +95,7 @@
     if (anObject) {
         return [self __NSArrayM_safe_arrayByAddingObject:anObject];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM arrayByAddingObject:], object cannot be nil");
+        CPError(@"-[__NSArrayM arrayByAddingObject:], object cannot be nil");
         //return [self __NSArrayM_safe_arrayByAddingObject:[NSNull null]];
         return self;
     }
@@ -107,9 +107,9 @@
         [self __NSArrayM_safe_insertObject:anObject atIndex:index];
     } else {
         if (anObject) {
-            CPAssert(NO, @"*** -[__NSArrayM insertObject:atIndex:]: index %d beyond bounds [0 .. %d]", (int)index, (int)self.count-1);
+            CPError(@"-[__NSArrayM insertObject:atIndex:]: index %d beyond bounds [0 .. %d]", (int)index, (int)self.count-1);
         } else {
-            CPAssert(NO, @"*** -[__NSArrayM insertObject:atIndex:]: object cannot be nil");
+            CPError(@"-[__NSArrayM insertObject:atIndex:]: object cannot be nil");
         }
     }
 }
@@ -118,19 +118,19 @@
     if (0 <= index && index < self.count) {
         [self __NSArrayM_safe_removeObjectAtIndex:index];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM removeObjectAtIndex:], index %d beyond bounds [0 .. %d]", (int)index, (int)self.count-1);
+        CPError(@"-[__NSArrayM removeObjectAtIndex:], index %d beyond bounds [0 .. %d]", (int)index, (int)self.count-1);
     }
 }
 
 - (void)__NSArrayM_safe_removeObject:(id)anObject inRange:(NSRange)range {
     if (!anObject) {
-        CPAssert(NO, @"*** -[__NSArrayM removeObject:inRange], object can not be nil");
+        CPError(@"-[__NSArrayM removeObject:inRange], object can not be nil");
         return;
     }
     if (range.location < 0 || range.length < 0) {
-        CPAssert(NO, @"*** -[__NSArrayM removeObject:inRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
+        CPError(@"-[__NSArrayM removeObject:inRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
     } else if ((range.location + range.length) > self.count) {
-        CPAssert(NO, @"*** -[__NSArrayM removeObject:inRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPError(@"-[__NSArrayM removeObject:inRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         [self __NSArrayM_safe_removeObject:anObject inRange:NSMakeRange(range.location, self.count - range.location)];
     } else {
         [self __NSArrayM_safe_removeObject:anObject inRange:range];
@@ -139,9 +139,9 @@
 
 - (void)__NSArrayM_safe_removeObjectsInRange:(NSRange)range {
     if (range.location < 0 || range.length < 0) {
-        CPAssert(NO, @"*** -[__NSArrayM removeObjectsInRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
+        CPError(@"-[__NSArrayM removeObjectsInRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
     } else if ((range.location + range.length) > self.count) {
-        CPAssert(NO, @"*** -[__NSArrayM removeObjectsInRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
+        CPError(@"-[__NSArrayM removeObjectsInRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
         [self __NSArrayM_safe_removeObjectsInRange:NSMakeRange(range.location, self.count - range.location)];
     } else {
         [self __NSArrayM_safe_removeObjectsInRange:range];
@@ -152,7 +152,7 @@
     if (0 <= index && index < self.count && anObject) {
         [self __NSArrayM_safe_replaceObjectAtIndex:index withObject:anObject];
     } else {
-        CPAssert(NO, @"*** -[__NSArrayM replaceObjectAtIndex:withObject:], bounds [0 ... %d], beyond bounds index %d or object is nil", (int)self.count-1, (int)index);
+        CPError(@"-[__NSArrayM replaceObjectAtIndex:withObject:], bounds [0 ... %d], beyond bounds index %d or object is nil", (int)self.count-1, (int)index);
     }
 }
 

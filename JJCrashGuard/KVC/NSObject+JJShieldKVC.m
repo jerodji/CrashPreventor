@@ -25,8 +25,18 @@
 }
 
 - (id)valueForUndefinedKey:(NSString *)key {
-    CPLog(@"KVC error, -[%@ valueForUndefinedKey:], key:%@", self.class, key);
-    return nil;
+    BOOL open = [[JJCrashGuard shared].shieldTypes containsObject:@(JShieldTypeKVC)];
+    if (open) {
+        CPLog(@"KVC error, -[%@ valueForUndefinedKey:], key:%@", self.class, key);
+        return nil;
+    } else {
+        //    Thread 1: "[<NSObject 0x6000002ec160> valueForUndefinedKey:]: this class is not key value coding-compliant for the key uu."
+        NSString *reason = [NSString stringWithFormat:@"[<%@ %p> valueForUndefinedKey:]: this class is not key value coding-compliant for the key %@.", self.class, self, key];
+        NSException *exception = [NSException exceptionWithName:@"NSUnknownKeyException" reason:reason userInfo:nil];
+        @throw exception;
+        
+        return nil;
+    }
 }
 
 
