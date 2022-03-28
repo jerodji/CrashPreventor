@@ -68,7 +68,7 @@
 - (void)_guardTypes:(JShieldType)type {
     if (type & JShieldTypeArray) {
         if (![self->shieldList containsObject:@(JShieldTypeArray)]) {
-            NSLog(@"array");
+            NSLog(@"begin guard array");
             [NSArray openShield];
             [NSMutableArray openShield];
             [self->shieldList addObject:@(JShieldTypeArray)];
@@ -76,7 +76,7 @@
     }
     if (type & JShieldTypeDictionary) {
         if (![self->shieldList containsObject:@(JShieldTypeDictionary)]) {
-            NSLog(@"dictionary");
+            NSLog(@"begin guard dictionary");
             [NSDictionary openShield];
             [NSMutableDictionary openShield];
             [self->shieldList addObject:@(JShieldTypeDictionary)];
@@ -84,12 +84,12 @@
     }
     if (type & JShieldTypeString) {
         if (![self->shieldList containsObject:@(JShieldTypeString)]) {
-            NSLog(@"string");
+            NSLog(@"begin guard string");
         }
     }
     if (type & JShieldTypeKVC) {
         if (![self->shieldList containsObject:@(JShieldTypeKVC)]) {
-            NSLog(@"kvc");
+            NSLog(@"begin guard kvc");
             [self->shieldList addObject:@(JShieldTypeKVC)];
         }
     }

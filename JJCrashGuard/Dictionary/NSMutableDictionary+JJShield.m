@@ -18,9 +18,15 @@
     dispatch_once(&onceToken, ^{
         //__NSDictionaryM
         Class __NSDictionaryM = NSClassFromString(@"__NSDictionaryM");
-        swizzling_instance_method(__NSDictionaryM, @selector(setObject:forKey:), @selector(__NSDictionaryM_safe_setObject:forKey:));
-        swizzling_instance_method(__NSDictionaryM, @selector(setObject:forKeyedSubscript:), @selector(__NSDictionaryM_safe_setObject:forKeyedSubscript:));
-        swizzling_instance_method(__NSDictionaryM, @selector(removeObjectForKey:), @selector(__NSDictionaryM_safe_removeObjectForKey:));
+        swizzling_instance_method(__NSDictionaryM,
+                                  @selector(setObject:forKey:),
+                                  @selector(__NSDictionaryM_safe_setObject:forKey:));
+        swizzling_instance_method(__NSDictionaryM,
+                                  @selector(setObject:forKeyedSubscript:),
+                                  @selector(__NSDictionaryM_safe_setObject:forKeyedSubscript:));
+        swizzling_instance_method(__NSDictionaryM,
+                                  @selector(removeObjectForKey:),
+                                  @selector(__NSDictionaryM_safe_removeObjectForKey:));
     });
 }
 
