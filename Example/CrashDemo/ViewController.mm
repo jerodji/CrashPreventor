@@ -30,8 +30,11 @@
 
 - (NSArray*)names {
     return @[
-        @"NSArray",
-        @"NSMutableArray",
+        @"__NSPlaceholderArray",
+        @"__NSArray0",
+        @"__NSSingleObjectArrayI",
+        @"__NSArrayI",
+        @"__NSArrayM",
         @"__NSPlaceholderDictionary",
         @"__NSDictionary0",
         @"__NSSingleEntryDictionaryI",
@@ -59,22 +62,125 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString * n = [self names][indexPath.item];
-    if ([n isEqualToString:@"NSArray"]) {
-        NSArray * arr = @[@1, @2];
-        id obj1 = arr[5];
-        id obj = [arr objectAtIndex:3];
+    // MARK: Array
+    if ([n isEqualToString:@"__NSPlaceholderArray"]) {
+        NSArray *arr = [NSArray alloc];
+        NSLog(@"%@", arr.class);
+        [arr objectAtIndex:0];//*** -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object"
+        
+        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu: %@", (unsigned long)idx, obj);
+        }];
     }
-    if ([n isEqualToString:@"NSMutableArray"]) {
-//        NSMutableArray *mut = [NSMutableArray arrayWithArray:@[@0,@1]];//__NSArrayM
-//        NSMutableArray *mut = [NSMutableArray arrayWithArray:@[@0]];//__NSArrayM
-//        NSMutableArray *mut = [NSMutableArray array];//__NSArrayM
-//        NSMutableArray *mut = [[NSMutableArray alloc] init];//__NSArrayM
-        NSMutableArray *mut = [NSMutableArray arrayWithCapacity:1];//__NSArrayM
-        NSLog(@"%@", mut.class);
-//        id el = [mut objectAtIndex:7];
-//        id nu = mut[113];
-//        [mut insertObject:nil atIndex:3];
+    if ([n isEqualToString:@"__NSArray0"]) {
+//        NSArray *arr = [NSArray new];
+        NSArray *arr = [NSArray array];
+//        NSArray *arr = [[NSArray alloc] init];
+        NSLog(@"%@", arr.class);
+        id v1 = [arr objectAtIndex:1];//*** -[__NSArray0 objectAtIndex:]: index 0 beyond bounds for empty NSArray
+        NSLog(@"v1:%@", v1);
+        
+        id v2 = [arr objectsAtIndexes:[NSIndexSet indexSetWithIndex:2]];//*** -[NSArray objectsAtIndexes:]: index 1 in index set beyond bounds for empty array
+        NSLog(@"v2: %@", v2);
+        
+        id v3 = [arr objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)]];//*** -[NSArray objectsAtIndexes:]: index 2 in index set beyond bounds [0 .. 1]
+        NSLog(@"v3: %@", v3);
+                
+        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu: %@", (unsigned long)idx, obj);
+        }];
+        
+//        id *objects;
+//        NSUInteger count = [arr count];
+//        objects = malloc(sizeof(id) * count);
+//        [arr getObjects:objects];
+//        for (int i = 0; i < count; i++) {
+//            NSLog(@"object at index %d: %@", i, objects[i]);
+//        }
+//        free(objects);
+        
     }
+    if ([n isEqualToString:@"__NSSingleObjectArrayI"]) {
+        NSArray *arr = @[@1];
+        NSLog(@"%@", arr.class);
+    }
+    if ([n isEqualToString:@"__NSArrayI"]) {
+        NSArray *arr = @[@1, @2, @3];
+        NSLog(@"%@", arr.class);
+        id v1 = [arr objectAtIndex:2];//*** -[__NSArray0 objectAtIndex:]: index 2 beyond bounds for empty NSArray
+        NSLog(@"v1:%@", v1);
+        
+        id v2 = [arr objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];//*** -[NSArray objectsAtIndexes:]: index 3 in index set beyond bounds [0 .. 1]
+        NSLog(@"v2: %@", v2);
+        
+        id v3 = [arr objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)]];//*** -[NSArray objectsAtIndexes:]: index 2 in index set beyond bounds [0 .. 1]
+        NSLog(@"v3: %@", v3);
+        
+        NSInteger v4 = [arr indexOfObject:@3];
+        NSLog(@"v4: %ld", (long)v4);//9223372036854775807
+        
+        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%lu: %@", (unsigned long)idx, obj);
+        }];
+        
+        
+//        id *objects;
+//        NSRange range = NSMakeRange(1, 2);
+//        objects = malloc(sizeof(id) * range.length);
+//        [arr getObjects:objects range:range];
+//        for (int i = 0; i < range.length; i++) {
+//            NSLog(@"objects: %@", objects[i]);
+//        }
+//        free(objects);
+        
+    }
+    if ([n isEqualToString:@"__NSArrayM"]) {
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:@[@0,@1]];//__NSArrayM
+//        NSMutableArray *arr = [NSMutableArray arrayWithArray:@[@0]];//__NSArrayM
+//        NSMutableArray *arr = [NSMutableArray array];//__NSArrayM
+//        NSMutableArray *arr = [[NSMutableArray alloc] init];//__NSArrayM
+//        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:1];//__NSArrayM
+//        NSMutableArray *arr = [NSMutableArray new];
+        NSLog(@"%@", arr.class);
+        id el = [arr objectAtIndex:7];
+        id nu = arr[113];
+        arr[1] = @11;
+        arr[1] = nil;//*** -[__NSArrayM setObject:atIndexedSubscript:]: object cannot be nil
+        arr[20] = @20;//*** -[__NSArrayM setObject:atIndexedSubscript:]: index 20 beyond bounds [0 .. 1]
+        [arr addObject:nil];
+        [arr addObject:@2];
+        [arr addObjectsFromArray:nil];
+        [arr arrayByAddingObject:@31];
+        [arr arrayByAddingObject:nil];
+        [arr insertObject:@3 atIndex:3];
+        [arr insertObject:nil atIndex:30];
+        NSLog(@"%@", arr);
+//        [arr insertObjects:@[@5,@6] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]]; // ✅
+//        [arr insertObjects:@[@5,@6] atIndexes:nil];//*** -[NSMutableArray insertObjects:atIndexes:]: index set cannot be nil
+//        [arr insertObjects:nil atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: count of array (0) differs from count of index set (2)
+//        [arr insertObjects:nil atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: index 5 in index set beyond bounds [0 .. 3]
+//        [arr insertObjects:@[@4] atIndexes:[NSIndexSet indexSetWithIndex:4]];//✅
+//        [arr insertObjects:@[@4, @5] atIndexes:[NSIndexSet indexSetWithIndex:4]];//*** -[NSMutableArray insertObjects:atIndexes:]: count of array (2) differs from count of index set (1)
+//        [arr insertObjects:@[@5] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: index 5 in index set beyond bounds [0 .. 4]
+//        [arr insertObjects:@[@4,@5,@6] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: count of array (3) differs from count of index set (2)
+//        [arr insertObjects:@[] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: index 5 in index set beyond bounds [0 .. 3]
+//        [arr insertObjects:@[@4,@5] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 2)]];//✅
+//        [arr insertObjects:@[@4,@5] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(5, 2)]];//*** -[NSMutableArray insertObjects:atIndexes:]: index 6 in index set beyond bounds [0 .. 5]
+//        [arr insertObjects:@[@5,@6] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 3)]];//*** -[NSMutableArray insertObjects:atIndexes:]: index 6 in index set beyond bounds [0 .. 5]
+//        [arr insertObjects:@[@5,@6] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(3, -2)]];//Thread 1: "*** -[NSMutableArray insertObjects:atIndexes:]: count of array (2) differs from count of index set (18446744073709551614)"
+        NSLog(@"%@", arr);
+        [arr removeObject:@4];
+        [arr removeObjectAtIndex:5];
+        [arr removeObject:@1 inRange:NSMakeRange(5, 2)];
+        [arr removeObjectsInArray:@[@1]];
+        [arr removeObjectsAtIndexes:nil];
+        [arr removeObjectsAtIndexes:[NSIndexSet indexSetWithIndex:4]];//*** -[NSMutableArray removeObjectsAtIndexes:]: index 4 in index set beyond bounds [0 .. 1]
+        [arr removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(3, 3)]];
+        [arr removeObjectsInRange:NSMakeRange(4, 3)];
+        NSLog(@"%@", arr);
+        
+    }
+    // MARK: Dictionary
     if ([n isEqualToString:@"__NSPlaceholderDictionary"]) {
         NSDictionary *dic = [NSDictionary alloc];
         NSLog(@"%@", dic.class);
@@ -169,6 +275,7 @@
 //        [dic removeObjectForKey:nil];
         [dic removeAllObjects];
     }
+    // MARK: KVC
     if ([n isEqualToString:@"KVC"]) {
         NSObject *obj = [NSObject new];
 //        [obj setValue:@1 forKey:@"uk"];

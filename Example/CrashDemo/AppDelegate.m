@@ -20,7 +20,7 @@
       
     //    // open crash prevent
 //    [[JJCrashGuard shared] beginGuard];
-    [[JJCrashGuard shared] beginGuardTypes:JShieldTypeDictionary | JShieldTypeKVC];
+    [[JJCrashGuard shared] beginGuardTypes:JShieldTypeDictionary | JShieldTypeKVC | JShieldTypeArray];
 
 //    // open assert to help debug, it's not work on release
 //    [[JJCrashGuard shared] openDebuggerAssert:YES];

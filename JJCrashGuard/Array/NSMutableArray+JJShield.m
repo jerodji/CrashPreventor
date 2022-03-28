@@ -15,7 +15,6 @@
 + (void)openShield {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        swizzling_instance_method([NSMutableArray class], @selector(insertObjects:atIndexes:), @selector(safe_insertObjects:atIndexes:));
         
         //__NSArrayM
         Class __NSArrayM = NSClassFromString(@"__NSArrayM");
@@ -24,10 +23,22 @@
         swizzling_instance_method(__NSArrayM, @selector(subarrayWithRange:), @selector(__NSArrayM_safe_subarrayWithRange:));
         swizzling_instance_method(__NSArrayM, @selector(arrayByAddingObject:), @selector(__NSArrayM_safe_arrayByAddingObject:));
         
+        swizzling_instance_method(__NSArrayM,
+                                  @selector(setObject:atIndexedSubscript:),
+                                  @selector(__NSArrayM_safe_setObject:atIndexedSubscript:));
         swizzling_instance_method(__NSArrayM, @selector(insertObject:atIndex:), @selector(__NSArrayM_safe_insertObject:atIndex:));
+        swizzling_instance_method(__NSArrayM,
+                        @selector(insertObjects:atIndexes:),
+                        @selector(__NSArrayM_safe_insertObjects:atIndexes:));
+        
         swizzling_instance_method(__NSArrayM, @selector(removeObjectAtIndex:), @selector(__NSArrayM_safe_removeObjectAtIndex:));
         swizzling_instance_method(__NSArrayM, @selector(removeObject:inRange:), @selector(__NSArrayM_safe_removeObject:inRange:));
+        swizzling_instance_method(__NSArrayM,
+                                  @selector(removeObjectsAtIndexes:),
+                                  @selector(__NSArrayM_safe_removeObjectsAtIndexes:));
         swizzling_instance_method(__NSArrayM, @selector(removeObjectsInRange:), @selector(__NSArrayM_safe_removeObjectsInRange:));
+        
+        
         swizzling_instance_method(__NSArrayM, @selector(replaceObjectAtIndex:withObject:), @selector(__NSArrayM_safe_replaceObjectAtIndex:withObject:));
         
         //__NSCFArray
@@ -46,12 +57,18 @@
     });
 }
 
-- (void)safe_insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes {
-    if (!objects || !indexes) {
-        CPError(@"-[NSMutableArray insertObjects:atIndexs:]: objects or indexes can not be nil");
+- (void)__NSArrayM_safe_setObject:(id)obj atIndexedSubscript:(NSUInteger)idx {
+    if (!obj) {
+        CPError(@"-[__NSArrayM setObject:atIndexedSubscript:]: object cannot be nil");
         return;
     }
-    [self safe_insertObjects:objects atIndexes:indexes];
+    if (self.count == 0) {
+        CPError(@"-[__NSArrayM setObject:atIndexedSubscript:]: index %lu beyond bounds empty array.", (unsigned long)idx);
+    } else if (0 <= idx && idx < self.count) {
+        [self __NSArrayM_safe_setObject:obj atIndexedSubscript:idx];
+    } else {
+        CPError(@"-[__NSArrayM setObject:atIndexedSubscript:]: index %lu beyond bounds [0 .. %lu]", (unsigned long)idx, (unsigned long)(self.count-1));
+    }
 }
 
 // MARK: __NSArrayM
@@ -101,7 +118,6 @@
     }
 }
 
-// addObject,
 - (void)__NSArrayM_safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
     if (0 <= index && index <= self.count && anObject) { //最后一个index可以插入
         [self __NSArrayM_safe_insertObject:anObject atIndex:index];
@@ -111,6 +127,29 @@
         } else {
             CPError(@"-[__NSArrayM insertObject:atIndex:]: object cannot be nil");
         }
+    }
+}
+
+- (void)__NSArrayM_safe_insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes {
+    if (!indexes) {
+        CPError(@"-[NSMutableArray insertObjects:atIndexes:]: index set cannot be nil");
+        return;
+    }
+    if (!objects) {
+        CPError(@"-[NSMutableArray insertObjects:atIndexes:]: count of array nil differs from count of index set (%lu)", (unsigned long)indexes.count);
+        return;
+    }
+    if (objects.count != indexes.count) {
+        CPError(@"-[NSMutableArray insertObjects:atIndexes:]: count of array (%lu) differs from count of index set (%lu)", (unsigned long)objects.count, (unsigned long)indexes.count);
+        return;
+    }
+    
+    NSUInteger firstIndex = indexes.firstIndex;
+    NSUInteger lastIndex = indexes.lastIndex;
+    if (0 <= firstIndex && firstIndex <= self.count) {
+        [self __NSArrayM_safe_insertObjects:objects atIndexes:indexes];
+    } else {
+        CPError(@"-[NSMutableArray insertObjects:atIndexes:]: index [%lu..%lu] in index set beyond bounds [0 .. %lu]", (unsigned long)firstIndex, (unsigned long)lastIndex, (unsigned long)(self.count-1));
     }
 }
 
@@ -131,9 +170,26 @@
         CPError(@"-[__NSArrayM removeObject:inRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
     } else if ((range.location + range.length) > self.count) {
         CPError(@"-[__NSArrayM removeObject:inRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
-        [self __NSArrayM_safe_removeObject:anObject inRange:NSMakeRange(range.location, self.count - range.location)];
     } else {
         [self __NSArrayM_safe_removeObject:anObject inRange:range];
+    }
+}
+
+- (void)__NSArrayM_safe_removeObjectsAtIndexes:(NSIndexSet *)indexes {
+    if (!indexes) {
+        CPError(@"-[__NSArrayM removeObjectsAtIndexes:], index set cannot be nil.");
+        return;
+    }
+    NSUInteger firstIndex = indexes.firstIndex;
+    NSUInteger lastIndex = indexes.lastIndex;
+    if (firstIndex >= 0 && lastIndex < self.count) {
+        return [self __NSArrayM_safe_removeObjectsAtIndexes:indexes];
+    } else {
+        if (firstIndex == lastIndex) {
+            CPError(@"-[__NSArrayM removeObjectsAtIndexes:], index %lu beyond [0...%lu].", firstIndex, (unsigned long)(self.count-1));
+        } else {
+            CPError(@"-[__NSArrayM removeObjectsAtIndexes:], indexes [%lu...%lu] beyond empty array.", (unsigned long)firstIndex, (unsigned long)lastIndex);
+        }
     }
 }
 
@@ -142,7 +198,6 @@
         CPError(@"-[__NSArrayM removeObjectsInRange], range (%d, %d) invalid", (int)range.location, (int)range.length);
     } else if ((range.location + range.length) > self.count) {
         CPError(@"-[__NSArrayM removeObjectsInRange], range (%d, %d) beyond bounds [0..%d]", (int)range.location, (int)range.length, (int)self.count-1);
-        [self __NSArrayM_safe_removeObjectsInRange:NSMakeRange(range.location, self.count - range.location)];
     } else {
         [self __NSArrayM_safe_removeObjectsInRange:range];
     }
