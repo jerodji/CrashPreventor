@@ -21,7 +21,7 @@
 }
 
 @synthesize open = _open;
-@synthesize debugger = _debugger;
+//@synthesize debugger = _debugger;
 //@synthesize shieldList = _shieldList;
 
 + (instancetype)shared {
@@ -53,12 +53,7 @@
     _open = YES;
     if (type == JShieldTypeAll) {
         if (![self->shieldList containsObject:@(JShieldTypeAll)]) {
-            NSLog(@"all");
-            [self->shieldList addObject:@(JShieldTypeAll)];
-            [NSArray openShield];
-            [NSMutableArray openShield];
-            [NSDictionary openShield];
-            [NSMutableDictionary openShield];
+            [self _guardTypes:JShieldTypeArray | JShieldTypeDictionary | JShieldTypeString | JShieldTypeKVC];
         }
     } else {
         [self _guardTypes:type];
@@ -99,17 +94,25 @@
 }
 
 
-- (void)openDebuggerAssert:(BOOL)debugger {
-#ifdef DEBUG
-    _debugger = debugger;
-#else
-    _debugger = NO;
-#endif
+- (void)setDebugger:(BOOL)debugger {
+    #ifdef DEBUG
+        _debugger = debugger;
+    #else
+        _debugger = NO;
+    #endif
 }
 
-- (void)reportLog:(NSString*)log stackInfo:(NSString*)info {
-    //请扩展实现自己的上报方法
-}
+//- (void)openDebuggerAssert:(BOOL)debugger {
+//#ifdef DEBUG
+//    _debugger = debugger;
+//#else
+//    _debugger = NO;
+//#endif
+//}
+
+//- (void)errorMessage:(NSString*)msg stackInfo:(NSString*)info {
+//    //请扩展实现自己的上报方法
+//}
 
 
 // MARK: - getter

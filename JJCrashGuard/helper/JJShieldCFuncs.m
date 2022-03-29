@@ -11,30 +11,36 @@
 
 
 void CPLog(NSString *format, ...) {
-    NSString *cpFormat = [@"[CrashGuard][info] " stringByAppendingString:format];
-    va_list args;
-    va_start(args, format);
-    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
-    va_end(args);
-    [[JJCrashGuard shared] handleInfoMsg:log];
+    if ([JJCrashGuard shared].logLevel >= JShieldLogLevelInfo) {
+        NSString *cpFormat = [@"[CrashGuard][info] " stringByAppendingString:format];
+        va_list args;
+        va_start(args, format);
+        NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+        va_end(args);
+        [[JJCrashGuard shared] handleInfoMsg:log];
+    }
 }
 
 void CPWarning(NSString *format, ...) {
-    NSString *cpFormat = [@"[CrashGuard][warning] " stringByAppendingString:format];
-    va_list args;
-    va_start(args, format);
-    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
-    va_end(args);
-    [[JJCrashGuard shared] handleWarningMsg:log];
+    if ([JJCrashGuard shared].logLevel >= JShieldLogLevelWarning) {
+        NSString *cpFormat = [@"[CrashGuard][warning] " stringByAppendingString:format];
+        va_list args;
+        va_start(args, format);
+        NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+        va_end(args);
+        [[JJCrashGuard shared] handleWarningMsg:log];
+    }
 }
 
 void CPError(NSString *format, ...) {
-    NSString *cpFormat = [@"[CrashGuard][error] " stringByAppendingString:format];
-    va_list args;
-    va_start(args, format);
-    NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
-    va_end(args);
-    [[JJCrashGuard shared] handleErrorMsg:log];
+    if ([JJCrashGuard shared].logLevel >= JShieldLogLevelError) {
+        NSString *cpFormat = [@"[CrashGuard][error] " stringByAppendingString:format];
+        va_list args;
+        va_start(args, format);
+        NSString *log = [[NSString alloc] initWithFormat:cpFormat arguments:args];
+        va_end(args);
+        [[JJCrashGuard shared] handleErrorMsg:log];
+    }
 }
 
 

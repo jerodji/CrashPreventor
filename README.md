@@ -22,7 +22,13 @@ pod 'JJCrashGuard'
 
 Crash防护框架，无感知，无入侵。
 
-目前支持 NSArray，NSMutableArrat，NSDictionary，NSMutableDictionary.
+目前支持 
+
+- NSArray 类簇
+- NSMutableArray 类簇
+- NSDictionary 类簇
+- NSMutableDictionary 类簇
+-  KVC
 
 其它支持正在更新中...
 
@@ -32,16 +38,21 @@ Crash防护框架，无感知，无入侵。
 
 ```objc
 // open crash prevent
-[[JJCrashGuard shared] openShield];
+[[JJCrashGuard shared] beginGuard];
 ```
 
 也可以选择需要的防护类型：
 
 ```objc
-[self openShieldWith:@[
-    [NSArray class], [NSMutableArray class],
-    [NSDictionary class], [NSMutableDictionary class]]
-];
+[[JJCrashGuard shared] beginGuardTypes:JShieldTypeDictionary | JShieldTypeKVC | JShieldTypeArray];
+```
+
+
+
+设置日志级别：
+
+```objc
+[JJCrashGuard shared].logLevel = JShieldLogLevelError;
 ```
 
 
@@ -50,14 +61,16 @@ Crash防护框架，无感知，无入侵。
 
 ```objc
 // open assert to help debug, it's not work on release
-[[JJCrashGuard shared] openDebuggerAssert:YES];
+[JJCrashGuard shared].debugger = YES;
 ```
 
 
 
-如果需要上报日志，需要给 `JJCrashGuard` 增加一个扩展，重写下面的方法，第一个参数是日志信息，第二个参数是堆栈信息。
+如果需要获取日志信息，或者上报日志，需要给 `JJCrashGuard` 实现代理，第一个参数是日志信息，第二个参数是堆栈信息。
 
 ```objc
+
+// 0.2.0 之前版本通过扩展重写 reportLog:stackInfo: 方法
 @implementation JJCrashGuard (report)
 
 - (void)reportLog:(NSString*)log stackInfo:(NSString*)info {
@@ -67,6 +80,22 @@ Crash防护框架，无感知，无入侵。
 }
 
 @end
+  
+  
+// 0.3.0 之后版本通过代理获取日志信息
+
+  [JJCrashGuard shared].delegate = self;
+
+- (void)errorMsg:(NSString *)msg stackInfo:(NSString *)info {
+    NSLog(@"1111 %@", msg);
+}
+- (void)warningMsg:(NSString *)msg stackInfo:(NSString *)info {
+    NSLog(@"2222 %@", msg);
+}
+- (void)infoMsg:(NSString *)msg stackInfo:(NSString *)info {
+    NSLog(@"3333 %@", msg);
+}
+  
 ```
 
 

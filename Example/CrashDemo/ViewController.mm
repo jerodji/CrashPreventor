@@ -12,6 +12,7 @@
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+- (void)testMethod;
 @end
 
 @implementation ViewController
@@ -40,7 +41,8 @@
         @"__NSSingleEntryDictionaryI",
         @"__NSDictionaryI",
         @"__NSDictionaryM",
-        @"KVC"
+        @"KVC",
+        @"no selector"
     ];
 }
 - (UITableView *)tableView {
@@ -272,14 +274,22 @@
         [dic removeObjectsForKeys:@[@"66"]];
         [dic removeObjectsForKeys:@[@"11", @"22", @"55"]];
         [dic removeObjectForKey:@"77"];
-//        [dic removeObjectForKey:nil];
-        [dic removeAllObjects];
+        [dic removeObjectForKey:nil];
+//        [dic removeAllObjects];
+        NSLog(@"dic1 : %@", dic);
+        [dic addEntriesFromDictionary:nil];
+        NSLog(@"dic2 : %@", dic);
+        
     }
     // MARK: KVC
     if ([n isEqualToString:@"KVC"]) {
         NSObject *obj = [NSObject new];
 //        [obj setValue:@1 forKey:@"uk"];
         [obj valueForKey:@"uu"];
+    }
+    // MARK: no selector
+    if ([n isEqualToString:@"no selector"]) {
+        [self testMethod];//-[ViewController testMethod]: unrecognized selector sent to instance 0x7fbcce405ef0
     }
 }
 
@@ -290,3 +300,7 @@
 
 
 @end
+
+
+
+

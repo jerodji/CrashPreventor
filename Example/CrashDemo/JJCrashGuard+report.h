@@ -1,13 +1,13 @@
+////
+////  JJCrashGuard+report.h
+////  CrashDemo
+////
+////  Created by CN210208396 on 2022/2/10.
+////
 //
-//  JJCrashGuard+report.h
-//  CrashDemo
+//#import <JJCrashGuard/JJCrashGuard.h>
 //
-//  Created by CN210208396 on 2022/2/10.
+//@interface JJCrashGuard (report)
 //
-
-#import <JJCrashGuard/JJCrashGuard.h>
-
-@interface JJCrashGuard (report)
-
-
-@end
+//
+//@end

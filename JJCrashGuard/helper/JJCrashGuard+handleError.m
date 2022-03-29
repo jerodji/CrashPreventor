@@ -10,19 +10,24 @@
 @implementation JJCrashGuard (handleError)
 
 - (void)handleInfoMsg:(NSString*)msg {
-    NSLog(@"%@", msg);
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(infoMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate infoMsg:msg stackInfo:nil];
+    }
 }
 
 - (void)handleWarningMsg:(NSString*)msg {
-    NSLog(@"%@", msg);
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(warningMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate warningMsg:msg stackInfo:nil];
+    }
 }
 
 - (void)handleErrorMsg:(NSString*)msg {
-    NSLog(@"%@", msg);
     if([JJCrashGuard shared].debugger) {
         NSAssert(NO, msg);
     }
-    [[JJCrashGuard shared] reportLog:msg stackInfo:nil];
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(errorMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate errorMsg:msg stackInfo:nil];
+    }
 }
 
 @end
