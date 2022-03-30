@@ -10,6 +10,8 @@
 #import "NSMutableArray+JJShield.h"
 #import "NSDictionary+JJShield.h"
 #import "NSMutableDictionary+JJShield.h"
+#import "NSObject+JJShieldSelector.h"
+
 
 @interface JJCrashGuard ()
 
@@ -53,7 +55,8 @@
     _open = YES;
     if (type == JShieldTypeAll) {
         if (![self->shieldList containsObject:@(JShieldTypeAll)]) {
-            [self _guardTypes:JShieldTypeArray | JShieldTypeDictionary | JShieldTypeString | JShieldTypeKVC];
+            [self _guardTypes:JShieldTypeArray | JShieldTypeDictionary | JShieldTypeKVC |
+             JShieldTypeUnrecognizedSelector];
         }
     } else {
         [self _guardTypes:type];
@@ -77,10 +80,16 @@
             [self->shieldList addObject:@(JShieldTypeDictionary)];
         }
     }
+    if (type & JShieldTypeSet) {
+        
+    }
     if (type & JShieldTypeString) {
-        if (![self->shieldList containsObject:@(JShieldTypeString)]) {
-            NSLog(@"begin guard string");
-        }
+//        if (![self->shieldList containsObject:@(JShieldTypeString)]) {
+//            NSLog(@"begin guard string");
+//        }
+    }
+    if (type & JShieldTypeNSURL) {
+        
     }
     if (type & JShieldTypeKVC) {
         if (![self->shieldList containsObject:@(JShieldTypeKVC)]) {
@@ -88,7 +97,16 @@
             [self->shieldList addObject:@(JShieldTypeKVC)];
         }
     }
-    
+    if (type & JShieldTypeKVO) {
+        
+    }
+    if (type & JShieldTypeUnrecognizedSelector) {
+        if (![self->shieldList containsObject:@(JShieldTypeUnrecognizedSelector)]) {
+            NSLog(@"begin guard Unrecognized Selector");
+            [self->shieldList addObject:@(JShieldTypeUnrecognizedSelector)];
+            [NSObject openShieldSelector];
+        }
+    }
     
     
 }

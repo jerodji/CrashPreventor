@@ -30,8 +30,8 @@ void InstallUncaughtExceptionHandler(void) {
 //    InstallUncaughtExceptionHandler();
       
     // open crash prevent
-    [[JJCrashGuard shared] beginGuard];
-    //[[JJCrashGuard shared] beginGuardTypes:JShieldTypeDictionary | JShieldTypeKVC | JShieldTypeArray];
+//    [[JJCrashGuard shared] beginGuard];
+    [[JJCrashGuard shared] beginGuardTypes:JShieldTypeDictionary | JShieldTypeKVC | JShieldTypeArray | JShieldTypeUnrecognizedSelector];
     [JJCrashGuard shared].logLevel = JShieldLogLevelWarning;
     [JJCrashGuard shared].delegate = self;
     //[JJCrashGuard shared].debugger = YES;// open assert to help debug, it's not work on release
@@ -43,13 +43,13 @@ void InstallUncaughtExceptionHandler(void) {
 
 //JShieldLogDelegate
 - (void)errorMsg:(NSString *)msg stackInfo:(NSString *)info {
-    NSLog(@"1111 %@", msg);
+    NSLog(@"%@", msg);
 }
 - (void)warningMsg:(NSString *)msg stackInfo:(NSString *)info {
-    NSLog(@"2222 %@", msg);
+    NSLog(@"%@", msg);
 }
 - (void)infoMsg:(NSString *)msg stackInfo:(NSString *)info {
-    NSLog(@"3333 %@", msg);
+    NSLog(@"%@", msg);
 }
 
 

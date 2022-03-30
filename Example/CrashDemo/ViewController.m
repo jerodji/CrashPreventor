@@ -7,16 +7,14 @@
 
 #import "ViewController.h"
 #import "CFuns.hpp"
-
+#import "Person.h"
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-- (void)testMethod;
 @end
 
 @implementation ViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,7 +40,10 @@
         @"__NSDictionaryI",
         @"__NSDictionaryM",
         @"KVC",
-        @"no selector"
+        @"no class selector",
+        @"no ins sel",
+        @"class selector",
+        @"ins sel"
     ];
 }
 - (UITableView *)tableView {
@@ -288,8 +289,20 @@
         [obj valueForKey:@"uu"];
     }
     // MARK: no selector
-    if ([n isEqualToString:@"no selector"]) {
-        [self testMethod];//-[ViewController testMethod]: unrecognized selector sent to instance 0x7fbcce405ef0
+    if ([n isEqualToString:@"no class selector"]) {
+//        [self testMethod:@"ssfr"];
+//        -[ViewController testMethod]: unrecognized selector sent to instance 0x7fbcce405ef0
+        [Person noExistClassMethod:@"aaa"];
+//        +[ViewController testFF:]: unrecognized selector sent to class 0x10a3fc940
+    }
+    if ([n isEqualToString:@"no ins sel"]) {
+        [[Person new] noExistInstanceMethod:@"sss"];
+    }
+    if ([n isEqualToString:@"class selector"]) {
+        [Person existClassMethod:@"qqq"];
+    }
+    if ([n isEqualToString:@"ins sel"]) {
+        [[Person new] existInstanceMethod:@"www"];
     }
 }
 
@@ -297,6 +310,7 @@
 //- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 //    ccfuns(22);
 //}
+
 
 
 @end

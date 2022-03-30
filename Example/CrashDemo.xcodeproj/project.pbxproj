@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B69727227F45A3D00FE60D2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B69727127F45A3D00FE60D2 /* Person.m */; };
 		1B7C3A4927B3F7AE00E597B0 /* JJCrashGuard.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */; };
 		1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C1B27B5257700E625A2 /* CFuns.mm */; };
 		1B7C5C2327B52E0F00E625A2 /* JJCrashGuard+report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */; };
 		83FC56AB00C302BDB3F0515C /* Pods_CrashDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D777441CC1F7A9707349939B /* Pods_CrashDemo.framework */; };
 		FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7A426521FF200C2932E /* AppDelegate.m */; };
-		FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7AA26521FF200C2932E /* ViewController.mm */; };
+		FAC3B7AB26521FF200C2932E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3B7AA26521FF200C2932E /* ViewController.m */; };
 		FAC3B7AE26521FF200C2932E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7AC26521FF200C2932E /* Main.storyboard */; };
 		FAC3B7B026521FF500C2932E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7AF26521FF500C2932E /* Assets.xcassets */; };
 		FAC3B7B326521FF500C2932E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC3B7B126521FF500C2932E /* LaunchScreen.storyboard */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B69727027F45A3D00FE60D2 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		1B69727127F45A3D00FE60D2 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		1B7C3A4827B3F7AE00E597B0 /* JJCrashGuard.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JJCrashGuard.podspec; path = ../JJCrashGuard.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1B7C5C1A27B5257700E625A2 /* CFuns.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CFuns.hpp; sourceTree = "<group>"; };
 		1B7C5C1B27B5257700E625A2 /* CFuns.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CFuns.mm; sourceTree = "<group>"; };
@@ -53,7 +56,7 @@
 		FAC3B7A326521FF200C2932E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FAC3B7A426521FF200C2932E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FAC3B7A926521FF200C2932E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FAC3B7AA26521FF200C2932E /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		FAC3B7AA26521FF200C2932E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAC3B7AD26521FF200C2932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC3B7AF26521FF500C2932E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC3B7B226521FF500C2932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -156,9 +159,11 @@
 				FAC3B7A326521FF200C2932E /* AppDelegate.h */,
 				FAC3B7A426521FF200C2932E /* AppDelegate.m */,
 				FAC3B7A926521FF200C2932E /* ViewController.h */,
-				FAC3B7AA26521FF200C2932E /* ViewController.mm */,
+				FAC3B7AA26521FF200C2932E /* ViewController.m */,
 				1B7C5C2127B52E0F00E625A2 /* JJCrashGuard+report.h */,
 				1B7C5C2227B52E0F00E625A2 /* JJCrashGuard+report.m */,
+				1B69727027F45A3D00FE60D2 /* Person.h */,
+				1B69727127F45A3D00FE60D2 /* Person.m */,
 			);
 			path = CrashDemo;
 			sourceTree = "<group>";
@@ -367,7 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC3B7AB26521FF200C2932E /* ViewController.mm in Sources */,
+				1B69727227F45A3D00FE60D2 /* Person.m in Sources */,
+				FAC3B7AB26521FF200C2932E /* ViewController.m in Sources */,
 				1B7C5C1C27B5257700E625A2 /* CFuns.mm in Sources */,
 				FAC3B7A526521FF200C2932E /* AppDelegate.m in Sources */,
 				FAC3B7B626521FF500C2932E /* main.m in Sources */,

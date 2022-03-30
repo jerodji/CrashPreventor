@@ -10,13 +10,14 @@
 /// 保护的类型
 typedef NS_OPTIONS(NSUInteger, JShieldType) {
     JShieldTypeAll = 0,
-    JShieldTypeString       = 1 << 0,
     JShieldTypeArray        = 1 << 1,
     JShieldTypeDictionary   = 1 << 2,
-    JShieldTypeSet = 1 << 3,
-    JShieldTypeKVC          = 1 << 4,
-    JShieldTypeKVO = 1 << 5,
-    JShieldTypeUnrecognizedSelector = 1 << 6
+    JShieldTypeSet          = 1 << 3,
+    JShieldTypeString       = 1 << 4,
+    JShieldTypeNSURL        = 1 << 5,
+    JShieldTypeKVC          = 1 << 6,
+    JShieldTypeKVO          = 1 << 7,
+    JShieldTypeUnrecognizedSelector = 1 << 8
 };
 
 /// 日志级别
