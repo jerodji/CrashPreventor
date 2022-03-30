@@ -22,13 +22,14 @@ pod 'JJCrashGuard'
 
 Crash防护框架，无感知，无入侵。
 
-目前支持 
+目前支持如下的 crash 防护
 
 - NSArray 类簇
 - NSMutableArray 类簇
 - NSDictionary 类簇
 - NSMutableDictionary 类簇
 -  KVC
+-  方法没有实现
 
 其它支持正在更新中...
 
