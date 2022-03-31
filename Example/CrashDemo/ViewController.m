@@ -285,8 +285,22 @@
     // MARK: KVC
     if ([n isEqualToString:@"KVC"]) {
         NSObject *obj = [NSObject new];
-//        [obj setValue:@1 forKey:@"uk"];
+//        [obj setValue:@1 forKey:@"uk"];//key 不存在
+//        [obj setValue:@"jkj" forKey:@"name.first"];
+//        [obj setValue:@2 forKey:nil];//*** -[NSObject setValue:forKey:]: attempt to set a value for a nil key
+        [obj setValue:nil forKey:@"ky"];//[<NSObject 0x600001914550> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key ky.
+//        [obj setNilValueForKey:@"oop"];//[<NSObject 0x600002318100> setNilValueForKey]: could not set nil as the value for the key oop.
+        
         [obj valueForKey:@"uu"];
+        
+        Person *p = [Person new];
+//        [p setValue:@"1" forKey:@"a"];
+//        [p setValue:@"qwe" forKey:@"name.first"];
+//        [p setValue:@"1" forKey:nil];
+//        [p setValue:nil forKey:@"name"];
+        [p setNilValueForKey:@"name"];
+        [p valueForKey:@"nameq"];
+        
     }
     // MARK: no selector
     if ([n isEqualToString:@"no class selector"]) {

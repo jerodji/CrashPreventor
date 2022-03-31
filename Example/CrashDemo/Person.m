@@ -19,6 +19,10 @@
 
 @implementation Person
 
+//- (void)setNilValueForKey:(NSString *)key {
+//    NSLog(@"111");
+//}
+
 + (void)existClassMethod:(NSString *)str {
     NSLog(@"%s, %@", __func__, str);
 }

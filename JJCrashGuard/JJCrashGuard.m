@@ -10,6 +10,7 @@
 #import "NSMutableArray+JJShield.h"
 #import "NSDictionary+JJShield.h"
 #import "NSMutableDictionary+JJShield.h"
+#import "NSObject+JJShieldKVC.h"
 #import "NSObject+JJShieldSelector.h"
 
 
@@ -95,6 +96,7 @@
         if (![self->shieldList containsObject:@(JShieldTypeKVC)]) {
             NSLog(@"begin guard kvc");
             [self->shieldList addObject:@(JShieldTypeKVC)];
+            [NSObject openShieldKVC];
         }
     }
     if (type & JShieldTypeKVO) {

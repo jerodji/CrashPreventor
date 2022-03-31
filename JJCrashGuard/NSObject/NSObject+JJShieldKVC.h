@@ -8,5 +8,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (JJShieldKVC)
-
++ (void)openShieldKVC;
 @end
