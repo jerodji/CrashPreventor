@@ -22,7 +22,7 @@
 
 // 4 种崩溃
 
-// key = nil 的崩溃
+// 1. key = nil 的崩溃
 - (void)__safe_setValue:(id)value forKey:(NSString *)key {
     if (key == nil) {
         CPError(@"*** -[%@ setValue:forKey:]: attempt to set a value for a nil key", NSStringFromClass([self class]));
@@ -35,13 +35,13 @@
     [self __safe_setValue:value forKey:key];
 }
 
-// setNilValueForKey 的崩溃
+// 2. setNilValueForKey 的崩溃
 - (void)setNilValueForKey:(NSString *)key {
     CPError(@"[%@ setNilValueForKey]: could not set nil as the value for the key oop.", self);
 }
 
-// key 不存在的崩溃
-// keyPath 错误的崩溃
+// 3. key 不存在的崩溃
+// 4. keyPath 错误的崩溃
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     BOOL open = [[JJCrashGuard shared].shieldTypes containsObject:@(JShieldTypeKVC)];
     if (open) {
