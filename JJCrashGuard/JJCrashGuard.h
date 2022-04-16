@@ -32,9 +32,9 @@ typedef NS_ENUM(NSUInteger, JShieldLogLevel) {
 /// info 堆栈信息,可能为 nil.
 @protocol JShieldLogDelegate <NSObject>
 @optional
-- (void)errorMsg:(NSString*)msg stackInfo:(NSString*)info;
-- (void)warningMsg:(NSString*)msg stackInfo:(NSString*)info;
-- (void)infoMsg:(NSString*)msg stackInfo:(NSString*)info;
+- (void)shieldLogErrorMsg:(NSString*)msg stackInfo:(NSString*)info;
+- (void)shieldLogWarningMsg:(NSString*)msg stackInfo:(NSString*)info;
+- (void)shieldLogInfoMsg:(NSString*)msg stackInfo:(NSString*)info;
 @end
 
 

@@ -10,14 +10,14 @@
 @implementation JJCrashGuard (handleError)
 
 - (void)handleInfoMsg:(NSString*)msg {
-    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(infoMsg:stackInfo:)]) {
-        [[JJCrashGuard shared].delegate infoMsg:msg stackInfo:nil];
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(shieldLogInfoMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate shieldLogInfoMsg:msg stackInfo:nil];
     }
 }
 
 - (void)handleWarningMsg:(NSString*)msg {
-    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(warningMsg:stackInfo:)]) {
-        [[JJCrashGuard shared].delegate warningMsg:msg stackInfo:nil];
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(shieldLogWarningMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate shieldLogWarningMsg:msg stackInfo:nil];
     }
 }
 
@@ -25,8 +25,8 @@
     if([JJCrashGuard shared].debugger) {
         NSAssert(NO, msg);
     }
-    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(errorMsg:stackInfo:)]) {
-        [[JJCrashGuard shared].delegate errorMsg:msg stackInfo:nil];
+    if ([JJCrashGuard shared].delegate && [[JJCrashGuard shared].delegate respondsToSelector:@selector(shieldLogErrorMsg:stackInfo:)]) {
+        [[JJCrashGuard shared].delegate shieldLogErrorMsg:msg stackInfo:nil];
     }
 }
 
